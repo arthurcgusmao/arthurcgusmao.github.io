@@ -1,0 +1,53 @@
+<footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">{{ site.title | escape }}</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <h3>About this website</h3>
+        <p>{{ site.description | escape }}</p>
+
+        <!-- <h3>Topics</h3> -->
+
+        <!-- <nav class="site-nav-footer"> -->
+        <!--   <div class="trigger"> -->
+        <!--     {% for my_page in site.pages %} -->
+        <!--     {% if my_page.title %} -->
+        <!--     <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a> -->
+        <!--     {% endif %} -->
+        <!--     {% endfor %} -->
+        <!--   </div> -->
+        <!-- </nav> -->
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="contact-list">
+          <h3>About the author</h3>
+          <li><b><u>
+              {% if site.author %}
+              {{ site.author | escape }}
+              {% else %}
+              {{ site.title | escape }}
+              {% endif %}
+          </b></u></li>
+          
+          {% if site.email %}
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          {% endif %}
+          
+          <li>{{ site.author_about | escape }}</li>
+          
+          {% if site.github_username %}
+          <li>
+            {% include icon-github.html username=site.github_username %}
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
