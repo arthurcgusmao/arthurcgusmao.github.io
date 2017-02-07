@@ -2,13 +2,18 @@
 layout: page
 title: Interesting links
 permalink: /links/
+comments: true
 ---
 
-Some random articles that may be interesting to check out.
+Some random links that may be interesting to check out. Please leave your
+comments below on which links were more relevant to you, so other people can see
+it.
 
 ## AI, Machine Learning
 
 [Visualizing K-Means Clustering](https://www.naftaliharris.com/blog/visualizing-k-means-clustering/)
+
+[Q-Learning convergence proof](http://www.gatsby.ucl.ac.uk/~dayan/papers/cjch.pdf)
 
 ## Math & Statistics
 
@@ -32,3 +37,7 @@ Some random articles that may be interesting to check out.
 [Latex handwritten recognition](http://webdemo.myscript.com/views/math.html#)
 
 [Translate selected text on Linux](https://github.com/arthurcgusmao/googletranslateselection)
+
+## Personal development
+
+[Actualized.org YouTube Channel](https://www.youtube.com/user/ActualizedOrg)

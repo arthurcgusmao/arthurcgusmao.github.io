@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Artificial Intelligence, Machine Learning and more
+title: AI, Machine Learning & more
 author: Arthur Colombini Gusmão
 author_about: >
   Artificial intelligence researcher.
@@ -22,14 +22,15 @@ author_about: >
   On a personal quest to crack the matrix.
 # email: example@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Articles, summaries, links and related to AI and Machine Learning.
-  Also, some other random stuff that I find interesting, such as personal
-  development and philosophy about our human existence.
+  Articles, book summaries, external links and topics related to Artificial
+  Intelligence and Machine Learning.  Also, some other random stuff that I find
+  interesting, such as personal development and philosophy about our human
+  existence.
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-#twitter_username: jekyllrb
 github_username:  arthurcgusmao
+disqus.shortname: arthurcgusmao
 
 # Build settings
 markdown: kramdown
