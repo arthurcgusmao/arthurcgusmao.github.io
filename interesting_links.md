@@ -15,6 +15,8 @@ it.
 
 [Q-Learning convergence proof](http://www.gatsby.ucl.ac.uk/~dayan/papers/cjch.pdf)
 
+[Reinforcement Learning: A Survey](http://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a.pdf)
+
 ## Math & Statistics
 
 [Understanding the Bias-Variance Tradeoff](http://scott.fortmann-roe.com/docs/BiasVariance.html)
