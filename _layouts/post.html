@@ -1,0 +1,45 @@
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%b %-d, %Y" }}
+      </time>
+      
+      {% if page.author %}
+      • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+      {% endif %}
+      
+      {% if page.categories %}
+      • <span>Category: {{ page.categories | join: ', ' }}</span>
+      {% endif %}
+
+      {% if page.last_edit %}
+      <time datetime="{{ page.last_edit | date_to_xmlschema }}" itemprop="datePublished">
+      • Last edited on {{ page.last_edit | date: "%b %-d, %Y" }}
+      </time>
+      {% endif %}
+
+      {% if page.category == "book-summary" %}
+      <br/><br/>
+      This article is a brief overview of the respective book, it encourages and
+      by no means substitute the reading of the original. All the ideas
+      presented here are my interpretation, and do not represent the author's
+      point of view unless explicited so.
+      {% endif %}
+    </p>
+    
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% if site.disqus.shortname %}
+  {% include disqus_comments.html %}
+  {% endif %}
+</article>
