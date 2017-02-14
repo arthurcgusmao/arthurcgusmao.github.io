@@ -40,6 +40,8 @@ it.
 
 [Translate selected text on Linux](https://github.com/arthurcgusmao/googletranslateselection)
 
+[Udacity Git Commit Message Style Guide](https://udacity.github.io/git-styleguide/)
+
 ## Personal development
 
 [Actualized.org YouTube Channel](https://www.youtube.com/user/ActualizedOrg)
