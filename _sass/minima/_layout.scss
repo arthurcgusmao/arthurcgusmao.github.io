@@ -13,6 +13,7 @@
 }
 
 .site-title {
+    color: $alternate-color-dark;
   font-family: $title-base-font-family;
   font-size: 26px;
   font-weight: 300;
@@ -23,7 +24,11 @@
 
   &,
   &:visited {
-    color: $alternate-color-dark;
+      color: $alternate-color-dark;
+  }
+
+  @include media-query($on-palm) {
+      font-size: 20px;
   }
 }
 
@@ -49,8 +54,8 @@
     position: absolute;
     top: 9px;
     right: $spacing-unit / 2;
-    background-color: $background-color;
-    border: 1px solid $grey-color-light;
+    background-color: $alternate-background-color;
+    border: 1px solid $alternate-text-color;
     border-radius: 5px;
     text-align: right;
 
@@ -64,7 +69,7 @@
       text-align: center;
 
       > svg path {
-        fill: $grey-color-dark;
+        fill: $grey-color-light;
       }
     }
 
