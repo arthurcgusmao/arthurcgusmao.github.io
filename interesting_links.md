@@ -36,11 +36,13 @@ it.
 
 [Pandas cheat sheet](https://github.com/pandas-dev/pandas/blob/master/doc/cheatsheet/Pandas_Cheat_Sheet.pdf)
 
-[Latex handwritten recognition](http://webdemo.myscript.com/views/math.html#)
-
 [Translate selected text on Linux](https://github.com/arthurcgusmao/googletranslateselection)
 
 [Udacity Git Commit Message Style Guide](https://udacity.github.io/git-styleguide/)
+
+[Latex handwritten recognition](http://webdemo.myscript.com/views/math.html#)
+
+[A Primer on Using LaTeX in Jupyter Notebooks](http://data-blog.udacity.com/posts/2016/10/latex-primer/)
 
 ## Personal development
 

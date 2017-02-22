@@ -18,9 +18,9 @@ layout: default
       • <span>Category: {{ page.categories | join: ', ' }}</span>
       {% endif %}
 
-      {% if page.last_edit %}
-      <time datetime="{{ page.last_edit | date_to_xmlschema }}" itemprop="datePublished">
-      • Last edited on {{ page.last_edit | date: "%b %-d, %Y" }}
+      {% if page.updated %}
+      <time datetime="{{ page.updated | date_to_xmlschema }}" itemprop="datePublished">
+      • Updated on {{ page.updated | date: "%b %-d, %Y" }}
       </time>
       {% endif %}
 
