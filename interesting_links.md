@@ -17,6 +17,8 @@ it.
 
 [Reinforcement Learning: A Survey](http://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a.pdf)
 
+[Backpropagation lecture](https://www.youtube.com/watch?v=59Hbtz7XgjM)
+
 ## Math & Statistics
 
 [Understanding the Bias-Variance Tradeoff](http://scott.fortmann-roe.com/docs/BiasVariance.html)
@@ -30,7 +32,6 @@ it.
 [Covariance — Different ways to explain or visualize it](http://stats.seandolinar.com/covariance-different-ways-to-explain/)
 
 [Removing Outliers](http://graphpad.com/guides/prism/6/statistics/index.htm?stat_checklist_identifying_outliers.htm)
-
 
 ## Programming
 
