@@ -1,0 +1,57 @@
+#+LATEX_HEADER: \usepackage{bm}
+
+This article aims at discussing some of the basics of gradient descent and backpropagation for
+use on artificial neural networks, and maybe presenting a different vision of the concepts that
+may be useful for newcomers. It's supposed that the reader is already familiar with calculus,
+linear algebra and basic terminology of artificial neural networks.
+
+* What is gradient descent?
+*Gradient descent* (also known as the method of steepest descent) is an optimization algorithm
+that moves toward a /local minimum/ of a function. Intuitively, at each iteraton the algorithm
+will take a step in the direction that shows the fastest decrease rate of the function, thus
+minimizing it locally.
+
+#+CAPTION: Path that gradient descent would produce for two different starting points
+[[./images/gradient_descent.png]]
+
+Univariate case: we want to minimize a function $y = f(x)$. Gradient descent uses the derivative
+of the function ($\frac{d f(x)}{dx}$, which gives us the slope) as a guide so that it knows how
+a small change $\epsilon$ in $x$ will affect the output $y$:
+\begin{align}
+f(x + \epsilon) \approx f(x) + \epsilon f'(x)
+\end{align}
+
+We can thus reduce $f(x)$ by moving $x$ in the opposite direction of the derivative.
+
+Multivariate case: the *gradient* (\bm{\nabla}_{\bm{x}}f\left( \bm{x\right})) of a function
+generalizes the notion of derivative to the case where the derivative is with respect to a
+vector:
+\begin{align}
+\bm{x} = [x_1, ..., x_n] \\
+f:\mathbb{R} ^{n}\rightarrow \mathbb{R} \\
+\bm{\nabla}_{\bm{x}}f\left( \bm{x\right}) =\left[ \begin{matrix} \dfrac {\partial f\left( \bm{x\right}) } {\partial x_{1}}\\ \vdots \\ \dfrac {\partial f\left( \bm{x\right}) } {\partial x_{n}}\end{matrix} \right]
+\end{align}
+
+Gradient descent for the multivariate case then proposes a new point
+\begin{align}
+\bm{x}' = \bm x - \epsilon \bm{\nabla_x}f(\bm{x})
+\end{align}
+
+Where $\epsilon > 0$ is the *learning rate*, a scalar that determines the size of the step we're
+going to take in the opposite direction of the gradient of the function to get to the (local)
+minimum. In ANNs, the function we're usually trying to minimize is an error (or loss) function.
+* Backpropagation: some intuition and the math
+On a neural network, gradient descent is used to minimize the error of the loss function.
+
+An intuitive idea on how backpropagation works is: it propagates the output errors of the neural
+network backwards so that for each hidden node we'll have a relative value of the error
+
+
+
+.....
+
+
+\begin{align}
+\text{error term} = \delta = (y - \hat y) f'(h) \\
+\Delta_{w_i} = \eta \delta x_i = - \eta \dfrac{\partial E}{\partial w_i}
+\end{align}

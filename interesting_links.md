@@ -17,7 +17,10 @@ it.
 
 [Reinforcement Learning: A Survey](http://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a.pdf)
 
-[Backpropagation lecture](https://www.youtube.com/watch?v=59Hbtz7XgjM)
+[Yes you should understand backprop](https://medium.com/@karpathy/yes-you-should-understand-backprop-e2f06eab496b#.det1ug82k)
+
+[Backpropagation Lecture (Stanford)](https://www.youtube.com/watch?v=59Hbtz7XgjM)
+
 
 ## Math & Statistics
 
@@ -33,6 +36,7 @@ it.
 
 [Removing Outliers](http://graphpad.com/guides/prism/6/statistics/index.htm?stat_checklist_identifying_outliers.htm)
 
+
 ## Programming
 
 [Pandas cheat sheet](https://github.com/pandas-dev/pandas/blob/master/doc/cheatsheet/Pandas_Cheat_Sheet.pdf)
@@ -44,6 +48,7 @@ it.
 [Latex handwritten recognition](http://webdemo.myscript.com/views/math.html#)
 
 [A Primer on Using LaTeX in Jupyter Notebooks](http://data-blog.udacity.com/posts/2016/10/latex-primer/)
+
 
 ## Personal development
 
