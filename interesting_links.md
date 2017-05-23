@@ -21,6 +21,8 @@ it.
 
 [Backpropagation Lecture (Stanford)](https://www.youtube.com/watch?v=59Hbtz7XgjM)
 
+[Machine Learning Map](http://scikit-learn.org/stable/tutorial/machine_learning_map/)
+
 
 ## Math & Statistics
 
