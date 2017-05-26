@@ -21,7 +21,7 @@ it.
 
 [Backpropagation Lecture (Stanford)](https://www.youtube.com/watch?v=59Hbtz7XgjM)
 
-[Machine Learning Map](http://scikit-learn.org/stable/tutorial/machine_learning_map/)
+[Scikit-Learn Machine Learning Map](http://scikit-learn.org/stable/tutorial/machine_learning_map/)
 
 
 ## Math & Statistics
@@ -50,6 +50,8 @@ it.
 [Latex handwritten recognition](http://webdemo.myscript.com/views/math.html#)
 
 [A Primer on Using LaTeX in Jupyter Notebooks](http://data-blog.udacity.com/posts/2016/10/latex-primer/)
+
+[PEP8 Guidelines](http://pymbook.readthedocs.io/en/latest/pep8.html)
 
 
 ## Personal development
