@@ -1,0 +1,69 @@
+* Atom (or Atomic formula)
+An atom is the simplest well-formed formula of the logic: a formula that contains no logical
+connectives (such as $\lnot, \land, \lor$), or, in other words, a formula that has no strict
+subformulas.
+
+Considering First-order logic (or predicate logic), the formula $smokes(x)$ is an atom, composed
+of a predicate ($smokes$) together with its argument ($x$).
+
+* Literal
+A literal is an atom or its negation: both $smokes(X)$ and $\lnot smokes(X)$ are literals.
+
+* Term
+A term can be a constant, a variable or a functor.
+
+* Clauses
+A clause is a disjunction (or conjunction, depending on the context) of literals: $\lnot
+smokes(X) \land friends(X,Y)$ is a clause. Clauses can be understood as logical implications.
+
+** Definite clause
+A definite clause is clause where exactly one atom is non-negated. This happens to be a useful
+representation because we can then write:
+
+\begin{align*}
+\lnot a \lor \lnot b & \lor \ c \\
+\lnot (a \land b) & \lor \ c \\
+a \land b & \to c
+\end{align*}
+
+We can that when the clause is written as implication, no term is negated. This is what
+characterizes a /definite logic program/.
+
+** Horn clause
+A Horn clause is an extension of a definite clause where one or none atoms are non-negated:
+$\lnot a \lor \lnot b \lor \lnot c$ is a Horn clause.
+
+* Fact
+A rule without a body, written simply as $A_0$, is a /fact/.
+
+* Herbrand base
+The Herbrand base of a program is the set of all ground atoms built from constants and
+predicates in the program.
+
+* Substitution
+In first-order logic, a substitution is a total mapping $\sigma : V \rightarrow T$ from
+variables to terms. Applying that substitution to a term means replacing each variable $v_i$ in
+$V$ by a respective term $t_i$ in $T$.
+
+A /grounding/ is a substitution that maps all variables to constants.
+
+* Database
+A database is a set of ground facts: $friends(a,b)$ or $smokes(c)$ for instance are facts.
+
+* Theory
+A theory $T$ is a set of function-free Horn Clauses.
+
+* Deductive closure
+In the context of statements, a *deductive closure* is the set of all the statements that can be
+deduced from a given set of statements. More formally, (see TEnsorLog article......)
+
+* Least model
+The *least model*, written $Model(DB, T)$ is the smallest superset of DB that is deductively
+closed with respect to every clause in T. A ground fact $f$ is considered "true" iff $f \in
+Model(DB, T)$.
+
+
+* References
+- Artigo do Cozman com o Dennis
+- Artigo do TensorLog
+

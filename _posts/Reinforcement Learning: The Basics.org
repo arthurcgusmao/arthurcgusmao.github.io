@@ -7,8 +7,8 @@ environment is fully observable), but it doesn't know how the environment works,
 results of the actions. Also, we assume that each action may result in many different outcomes,
 given an unknown probabilistic mapping from actions to outcomes (called the *transition model*:
 $P(s^{'} | s,a)$). Also, for each state the agent receives a reward, a mapping called the
-*reward function*: $R(s)$. All of the above means that the agent faces a /Markov decision
-process/ (MDP).
+*reward function*: $R(s)$. All of the above means that the agent faces a /Markov Decision
+Process/ (MDP).
 
 To solve this problem, we consider three types of agent design:
 
