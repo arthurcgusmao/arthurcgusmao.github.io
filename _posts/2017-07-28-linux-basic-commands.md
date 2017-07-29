@@ -27,14 +27,14 @@ Options:
 ### Accessing a remote machine
 Having a `.pem` file:
 ```bash
-ssh -i key.pem ubuntu@52.0.191.61
+ssh -i key.pem ubuntu@0.0.0.0
 ```
 
 
 ### Copy files between machines
 Having a `.pem` file:
 ```bash
-scp -i key.pem file1 (...) fileN ubuntu@52.0.191.61://home/ubuntu
+scp -i key.pem file1 (...) fileN ubuntu@0.0.0.0://home/ubuntu
 ```
 
 
