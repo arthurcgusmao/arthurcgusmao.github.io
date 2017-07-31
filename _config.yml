@@ -32,11 +32,20 @@ github_username: arthurcgusmao
 disqus:
   shortname: arthurcgusmao
 
+# Pandoc settings
+pandoc:
+  extensions:
+    - normalize
+    - smart
+    - mathjax
+    - bibliography: /home/arthurcgusmao/Documents/zotero.bib
+
 # Build settings
-markdown: kramdown
+markdown: Pandoc
 theme: minima
 gems:
   - jekyll-feed
+  - jekyll-pandoc
 exclude:
   - Gemfile
   - Gemfile.lock
