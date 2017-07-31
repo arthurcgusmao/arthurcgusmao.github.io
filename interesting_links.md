@@ -38,6 +38,9 @@ it.
 
 [Removing Outliers](http://graphpad.com/guides/prism/6/statistics/index.htm?stat_checklist_identifying_outliers.htm)
 
+[Game theory explaining trust/distrust](http://ncase.me/trust/)
+
+
 
 ## Programming
 
