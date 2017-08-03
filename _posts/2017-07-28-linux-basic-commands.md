@@ -89,3 +89,8 @@ Memory and CPU usage per process:
 ```bash
 top
 ```
+
+### Git
+```bash
+git log --pretty=oneline --all --decorate --graph
+```
