@@ -9,11 +9,11 @@ layout: default
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: "%b %-d, %Y" }}
       </time>
-      
+
       {% if page.author %}
       • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
       {% endif %}
-      
+
       {% if page.categories %}
       • <span>Category: {{ page.categories | join: ', ' }}</span>
       {% endif %}
@@ -32,7 +32,7 @@ layout: default
       point of view unless explicited so.
       {% endif %}
     </p>
-    
+
   </header>
 
   <div class="post-content" itemprop="articleBody">
@@ -40,6 +40,6 @@ layout: default
   </div>
 
   {% if site.disqus.shortname %}
-  {% include disqus_comments.html %}
+    {% include disqus_comments.html %}
   {% endif %}
 </article>

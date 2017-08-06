@@ -91,6 +91,14 @@ top
 ```
 
 ### Git
+
+Pretty logging
 ```bash
 git log --pretty=oneline --all --decorate --graph
+```
+
+Pull a specific directory
+```bash
+git fetch REMOTE_NAME
+git checkout REMOTE_NAME/BRANCH -- relative/path/to/dir
 ```
