@@ -97,8 +97,15 @@ Pretty logging
 git log --pretty=oneline --all --decorate --graph
 ```
 
-Pull a specific directory
+Pull a specific directory:
 ```bash
 git fetch REMOTE_NAME
 git checkout REMOTE_NAME/BRANCH -- relative/path/to/dir
+```
+
+### Packages on Ubuntu
+
+See where a package is installed:
+```bash
+dpkg -L <packagename>
 ```
