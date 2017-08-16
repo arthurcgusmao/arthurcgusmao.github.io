@@ -25,6 +25,47 @@ with tf.Session() as sess:
 ```
 
 
+## Variables and Placeholders
+
+[This question](https://stackoverflow.com/questions/36693740/whats-the-difference-between-tf-placeholder-and-tf-variable) describes pretty well the difference between `tf.Variable()` and `tf.placeholder()` and when each should be used. When using variables, you should initialize their value via `tf.global_variables_initializer`. With placeholders, be sure to pass their values via a `feed_dict`.
+
+Since you'll want to feed more than one single example in the input, it is common to create the input placeholder like this:
+```python
+input = tf.placeholder(tf.float32, [None, n_features])
+```
+which corresponds to a tensor with `None` (i.e., a variable number of) lines and `n_features` columns.
+
+
+## ReLUs
+
+The ReLU function is provided by tensorflow via `tf.nn.relu()`:
+```python
+# Hidden Layer with ReLU activation function
+hidden_layer = tf.add(tf.matmul(features, hidden_weights), hidden_biases)
+hidden_layer = tf.nn.relu(hidden_layer)
+
+output = tf.add(tf.matmul(hidden_layer, output_weights), output_biases)
+```
+
+
+## Convolutions
+
+The functions [`tf.nn.conv2d()`](https://www.tensorflow.org/api_docs/python/tf/nn/conv2d) and [`tf.nn.bias_add()`](https://www.tensorflow.org/api_docs/python/tf/nn/bias_add) help you create a convolutional layer:
+```python
+conv_layer = tf.nn.conv2d(input, weight, strides=[...], padding='SAME|VALID')
+conv_layer = tf.nn.bias_add(conv_layer, bias)
+# activation function
+conv_layer = tf.nn.relu(conv_layer)
+```
+
+
+## Pooling
+
+[`tf.nn.max_pool()`](https://www.tensorflow.org/api_docs/python/tf/nn/max_pool) helps you apply max pooling to the convolutional layer:
+```python
+conv_layer = tf.nn.max_pool(conv_layer, ksize=[...], strides=[...], padding='SAME|VALID')
+```
+2x2 filters with a stride of 2x2 are common in practice.
 
 
 
