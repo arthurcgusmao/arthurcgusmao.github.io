@@ -57,7 +57,8 @@ conv_layer = tf.nn.bias_add(conv_layer, bias)
 # activation function
 conv_layer = tf.nn.relu(conv_layer)
 ```
-`tf.nn.conv2d` requires the input be 4D (batch_size, height, width, depth).
+`tf.nn.conv2d` requires the input be 4D (batch_size, height, width, depth). The difference between the two types of padding is [nicely explained here](https://stackoverflow.com/a/39371113/5103881).
+
 
 
 ## Pooling
@@ -66,7 +67,7 @@ conv_layer = tf.nn.relu(conv_layer)
 ```python
 conv_layer = tf.nn.max_pool(conv_layer, ksize=[...], strides=[...], padding='SAME|VALID')
 ```
-2x2 filters with a stride of 2x2 are common in practice.
+`ksize` is the filter size. 2x2 filters with a stride of 2x2 are common in practice.
 
 
 
