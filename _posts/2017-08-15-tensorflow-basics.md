@@ -27,7 +27,7 @@ with tf.Session() as sess:
 
 ## Variables and Placeholders
 
-[This question](https://stackoverflow.com/questions/36693740/whats-the-difference-between-tf-placeholder-and-tf-variable) describes pretty well the difference between `tf.Variable()` and `tf.placeholder()` and when each should be used. When using variables, you should initialize their value via `tf.global_variables_initializer`. With placeholders, be sure to pass their values via a `feed_dict`.
+[This question](https://stackoverflow.com/questions/36693740/whats-the-difference-between-tf-placeholder-and-tf-variable) describes pretty well the difference between `tf.Variable()` and `tf.placeholder()` and when each should be used. When using variables, you should initialize their value via `tf.global_variables_initializer()`. With placeholders, be sure to pass their values via a `feed_dict` when running the session.
 
 Since you'll want to feed more than one single example in the input, it is common to create the input placeholder like this:
 ```python
@@ -57,6 +57,7 @@ conv_layer = tf.nn.bias_add(conv_layer, bias)
 # activation function
 conv_layer = tf.nn.relu(conv_layer)
 ```
+`tf.nn.conv2d` requires the input be 4D (batch_size, height, width, depth).
 
 
 ## Pooling
