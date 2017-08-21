@@ -35,6 +35,11 @@ input = tf.placeholder(tf.float32, [None, n_features])
 ```
 which corresponds to a tensor with `None` (i.e., a variable number of) lines and `n_features` columns.
 
+To define a scalar, create a tensor with 0 dimensions:
+```python
+scalar = tf.placeholder(tf.float32, [])
+```
+
 
 ## ReLUs
 
@@ -88,6 +93,29 @@ In order to compensate for dropped units, the function automatically multiplies 
 
 
 
+
+## Training the network
+
+```python
+# define loss and optimizer
+cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=y))
+optimizer = tf.train.GradientDescentOptimizer(learning_rate=learning_rate).minimize(cost)
+
+with tf.Session() as sess:
+    sess.run(tf.global_variables_initializer())
+
+    for epoch in range(epochs):
+        for batch in range(num_examples//batch_size):
+            ...
+            sess.run(optimizer, feed_dict={...})
+
+            loss = sess.run(cost, feed_dict={...})
+```
+Remember to use `keep_prob = 1` when calculating the loss.
+
+
+
+
 ## Save and load progress
 `tf.train.Saver` lets you save any `tf.Variable` to your file system.
 
@@ -118,7 +146,17 @@ with tf.Session() as sess:
 Tensorflow automatically assings names to each variable and it'll use it when loading the data. To avoid errors you may want to set the names manually:
 ```python
 weights = tf.Variable(tf.truncated_normal([2,3]), name='weights')
+# or
+weights = tf.Variable(tf.truncated_normal([2,3]))
+weights = tf.identity(weights, name='weights')
 ```
 
-## Tensorflow examples
+
+## Shapes and dimensions
+
+To get the [shape as a list of ints](https://stackoverflow.com/a/40666375/5103881), do `tensor.get_shape().as_list()`.
+
+
+
+## Examples
 Lots of Tensorflow examples [here](https://github.com/aymericdamien/TensorFlow-Examples).
