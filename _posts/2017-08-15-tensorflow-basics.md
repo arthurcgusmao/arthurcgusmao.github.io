@@ -40,6 +40,12 @@ To define a scalar, create a tensor with 0 dimensions:
 scalar = tf.placeholder(tf.float32, [])
 ```
 
+Variables are usually defined like so:
+```python
+weights = tf.Variable(tf.truncated_normal([..., ...]))
+biases = tf.Variable(tf.zeros([...]))
+```
+
 
 ## ReLUs
 
@@ -160,3 +166,17 @@ To get the [shape as a list of ints](https://stackoverflow.com/a/40666375/510388
 
 ## Examples
 Lots of Tensorflow examples [here](https://github.com/aymericdamien/TensorFlow-Examples).
+
+
+
+## LSTMs
+
+```python
+def build_cell(num_units, keep_prob):
+    lstm = tf.contrib.rnn.BasicLSTMCell(num_units)
+    drop = tf.contrib.rnn.DropoutWrapper(lstm, output_keep_prob=keep_prob)
+
+    return drop
+
+tf.contrib.rnn.MultiRNNCell([build_cell(num_units, keep_prob) for _ in range(num_layers)])
+```
