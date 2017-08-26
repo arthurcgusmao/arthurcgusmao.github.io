@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Useful linux commands"
+title:  "Useful Linux commands"
 category: programming
 ---
 
@@ -45,6 +45,15 @@ grep -rn "string"
 Options:
 - r: Recursive
 - n: Show line Number
+
+
+### File space usage
+```bash
+du -sh [file_path]
+```
+Options:
+- s (`--summarize`): display only a total of each argument
+- h (`--human-readable`): print sizes in human readable format (e.g., 1K 234M 2G)
 
 
 ### Screen (terminal sessions in the background)

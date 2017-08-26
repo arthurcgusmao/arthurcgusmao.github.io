@@ -1,4 +1,9 @@
-# Tensorflow basics
+---
+layout: post
+title:  "TensorFlow basics"
+category: programming
+---
+
 
 ## Installation
 
@@ -49,7 +54,7 @@ biases = tf.Variable(tf.zeros([...]))
 
 ## ReLUs
 
-The ReLU function is provided by tensorflow via `tf.nn.relu()`:
+The ReLU function is provided via `tf.nn.relu()`:
 ```python
 # Hidden Layer with ReLU activation function
 hidden_layer = tf.add(tf.matmul(features, hidden_weights), hidden_biases)
@@ -84,7 +89,7 @@ conv_layer = tf.nn.max_pool(conv_layer, ksize=[...], strides=[...], padding='SAM
 
 ## Dropout
 
-Dropout forces the network to learn **redundant** representations, making things more robust and preventing overfitting. Also, it makes the network act as if taking the consensus of an ensemble of networks, improving performance. `tf.nn.dropout()` is provided by tensorflow:
+Dropout forces the network to learn **redundant** representations, making things more robust and preventing overfitting. Also, it makes the network act as if taking the consensus of an ensemble of networks, improving performance. See [`tf.nn.dropout()`](https://www.tensorflow.org/api_docs/python/tf/nn/dropout):
 ```python
 keep_prob = tf.placeholder(tf.float32) # probability to keep units
 
@@ -98,6 +103,17 @@ logits = tf.add(tf.matmul(hidden_layer, weights[1]), biases[1])
 In order to compensate for dropped units, the function automatically multiplies kept units by $\frac{1}{keep\_prob}$.
 
 
+## LSTMs
+
+```python
+def build_cell(num_units, keep_prob):
+    lstm = tf.contrib.rnn.BasicLSTMCell(num_units)
+    drop = tf.contrib.rnn.DropoutWrapper(lstm, output_keep_prob=keep_prob)
+
+    return drop
+
+tf.contrib.rnn.MultiRNNCell([build_cell(num_units, keep_prob) for _ in range(num_layers)])
+```
 
 
 ## Training the network
@@ -149,10 +165,21 @@ with tf.Session() as sess:
     pass
 ```
 
-Tensorflow automatically assings names to each variable and it'll use it when loading the data. To avoid errors you may want to set the names manually:
+When loading the data tensorflow uses the names it assigns to variables, so be sure to check out the next section.
+
+## Names and Scopes
+
+Tensorflow automatically assings names to each variable. To avoid errors when loading data or debugging you may want to set the names manually. You are also able to set name scopes with `tf.name_scope()`, which cause all groups of related objects to have the same naming structure. A good way to do it when defining functions to create the layers is:
 ```python
-weights = tf.Variable(tf.truncated_normal([2,3]), name='weights')
-# or
+def fc_layer(input, channels_in, channels_out, name='fc')
+    with tf.name_scope(name):
+        w = tf.Variable(tf.zeros([channels_in, channels_out]), name='W')
+        b = tf.Variable(tf.zeros([channels_out]), name='B')
+        return tf.nn.relu(tf.matmul(input, w) + b)
+```
+
+It's possible to set names after the variable was created also, with `tf.identify()`:
+```python
 weights = tf.Variable(tf.truncated_normal([2,3]))
 weights = tf.identity(weights, name='weights')
 ```
@@ -163,20 +190,59 @@ weights = tf.identity(weights, name='weights')
 To get the [shape as a list of ints](https://stackoverflow.com/a/40666375/5103881), do `tensor.get_shape().as_list()`.
 
 
+## TensorBoard
+
+[TensorBoard](https://www.tensorflow.org/get_started/summaries_and_tensorboard) is a suite of visualization tools to make debugging, optimization and understading of TF graphs easier.
+
+To use TB we need first write data from TF to disk, using the class `tf.summary.FileWriter()`:
+```python
+with tf.Session() as sess:
+    writer = tf.summary.FileWriter("/tmp/example_name/1")
+    writer.add_graph(sess.graph) # this can also be passed in the above statement
+```
+And then use the command `tensorboard` specifying the logging directory:
+```bash
+$ tensorboard --logdir /tmp/example_name/1
+```
+To export condensed information about the model, you use [summaries](https://www.tensorflow.org/api_guides/python/summary):
+```python
+tf.summary.scalar('accuracy', accuracy)
+tf.summary.image('input', x_image, 3)
+
+def fc_layer(...):
+    ...
+    tf.summary.histogram("weights", w)
+    tf.summary.histogram("biases", b)
+    tf.summary.histogram("activations", act)
+    return ...
+
+# collect summaries
+with tf.Session() as sess:
+    ...
+    merged_summary = tf.summary.merge_all()
+
+    for i in range(2001):
+        ...
+        if i % 5 ==0:
+            s = sess.run(merged_summary, feed_dict={x: batch[0], y: batch[1]})
+            writer.add_summary(s, i)
+```
+Histograms are useful when you have a bunch of numbers (like in a matrix) and you want to look at the distribution of it.
+
+It may be an interesting idea to save different sets of summaries to disk for the varying hyperparameters you may want to experiment with:
+```python
+# hyperparameter search
+for learning_rate in [1e-3, 1e-4, 1e-5]:
+    for num_fc_layers in [2, 3]:
+        # save a different summary for each configuration
+        hparam_str = make_hparam_string(learning_rate, num_fc_layers)
+        writer = tf.summary.FileWriter("/tmp/example_name/" + hparam_str)
+
+        # actually run with the new settings
+```
+
+A very interesting feature that TB has is the **Embedding Visualizer**, which lets you project high dimensional data into 3 dimensions. Code shown above was taken from [here](https://github.com/dandelionmane/tf-dev-summit-tensorboard-tutorial/blob/master/mnist.py).
+
 
 ## Examples
 Lots of Tensorflow examples [here](https://github.com/aymericdamien/TensorFlow-Examples).
-
-
-
-## LSTMs
-
-```python
-def build_cell(num_units, keep_prob):
-    lstm = tf.contrib.rnn.BasicLSTMCell(num_units)
-    drop = tf.contrib.rnn.DropoutWrapper(lstm, output_keep_prob=keep_prob)
-
-    return drop
-
-tf.contrib.rnn.MultiRNNCell([build_cell(num_units, keep_prob) for _ in range(num_layers)])
-```
