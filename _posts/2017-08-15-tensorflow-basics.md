@@ -178,7 +178,7 @@ def fc_layer(input, channels_in, channels_out, name='fc')
         return tf.nn.relu(tf.matmul(input, w) + b)
 ```
 
-It's possible to set names after the variable was created also, with `tf.identify()`:
+It's possible to set names after the variable was created also, with `tf.identity()`:
 ```python
 weights = tf.Variable(tf.truncated_normal([2,3]))
 weights = tf.identity(weights, name='weights')
