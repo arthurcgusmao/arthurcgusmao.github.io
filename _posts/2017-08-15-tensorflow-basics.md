@@ -103,6 +103,19 @@ logits = tf.add(tf.matmul(hidden_layer, weights[1]), biases[1])
 In order to compensate for dropped units, the function automatically multiplies kept units by $\frac{1}{keep\_prob}$.
 
 
+
+
+## Embedding Layers
+
+`tf.nn.embedding_lookup()` does the job. In the example below we create an embedding layer for the case of word representation, considering that the number of possible words (or, in practice, the number of possible indexes we are going to feed into the network) is `vocab_size` and the number of latent factors in the embedding being `embed_dim`:
+
+```python
+embedding = tf.Variable(tf.random_uniform([vocab_size, embed_dim], -1, 1))
+embed = tf.nn.embedding_lookup(embedding, input_data)
+```
+
+
+
 ## LSTMs
 
 ```python
@@ -166,6 +179,9 @@ with tf.Session() as sess:
 ```
 
 When loading the data tensorflow uses the names it assigns to variables, so be sure to check out the next section.
+
+
+
 
 ## Names and Scopes
 
