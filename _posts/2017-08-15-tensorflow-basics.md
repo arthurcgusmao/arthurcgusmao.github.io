@@ -32,7 +32,7 @@ with tf.Session() as sess:
 
 ## Variables and Placeholders
 
-[This question](https://stackoverflow.com/questions/36693740/whats-the-difference-between-tf-placeholder-and-tf-variable) describes pretty well the difference between `tf.Variable()` and `tf.placeholder()` and when each should be used. When using variables, you should initialize their value via `tf.global_variables_initializer()`. With placeholders, be sure to pass their values via a `feed_dict` when running the session.
+[This question](https://stackoverflow.com/questions/36693740/whats-the-difference-between-tf-placeholder-and-tf-variable) describes pretty well the difference between `tf.Variable()` and `tf.placeholder()` and when each should be used. When using variables, you should initialize their value by creating an initializer `tf.global_variables_initializer()` and running it through the session. With placeholders, be sure to pass their values via a `feed_dict` when running the session.
 
 Since you'll want to feed more than one single example in the input, it is common to create the input placeholder like this:
 ```python

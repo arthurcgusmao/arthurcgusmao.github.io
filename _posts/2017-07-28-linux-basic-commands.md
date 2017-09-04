@@ -112,6 +112,10 @@ git fetch REMOTE_NAME
 git checkout REMOTE_NAME/BRANCH -- relative/path/to/dir
 ```
 
+Download only a specific directory (without having to clone the whole repo):
+check [this answer](https://stackoverflow.com/a/18194523/5103881).
+
+
 ### Packages on Ubuntu
 
 See where a package is installed:
