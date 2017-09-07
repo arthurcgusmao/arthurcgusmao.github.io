@@ -122,10 +122,11 @@ embed = tf.nn.embedding_lookup(embedding, input_data)
 def build_cell(num_units, keep_prob):
     lstm = tf.contrib.rnn.BasicLSTMCell(num_units)
     drop = tf.contrib.rnn.DropoutWrapper(lstm, output_keep_prob=keep_prob)
-
     return drop
 
-tf.contrib.rnn.MultiRNNCell([build_cell(num_units, keep_prob) for _ in range(num_layers)])
+cell = tf.contrib.rnn.MultiRNNCell([build_cell(num_units, keep_prob) for _ in range(num_layers)])
+
+output, state = tf.nn.dynamic_rnn(cell, embed, sequence_length=source_sequence_length, dtype=tf.float32)
 ```
 
 
