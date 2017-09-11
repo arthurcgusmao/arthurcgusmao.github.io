@@ -10,14 +10,14 @@ $base-font-size:   16px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
-$title-base-line-height: 1.3;
+$title-base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
 $text-color:       #000;
 $alternate-text-color: #fff;
-$background-color: #fdfdfd;
-$alternate-background-color: #556;
+$background-color: #ffffff;
+$alternate-background-color: #333;
 $brand-color:      #2a7ae2;
 
 $grey-color:       #828282;
@@ -28,7 +28,7 @@ $alternate-color-light: #eee;
 $alternate-color-dark: #ccc;
 
 // Width of the content area
-$content-width:    800px;
+$content-width:    900px;
 
 $on-palm:          600px;
 $on-laptop:        800px;

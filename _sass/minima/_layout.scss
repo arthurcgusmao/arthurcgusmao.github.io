@@ -2,8 +2,10 @@
  * Site header
  */
 .site-header {
-  border-top: 5px solid $grey-color-dark;
-  border-bottom: 1px solid $grey-color-light;
+  // border-top: 5px solid $grey-color-dark;
+  // border-bottom: 1px solid $grey-color-light;
+  // @acg: instead of borders I decided to put box-shadow
+  box-shadow: 0 0 20px $alternate-background-color;
   min-height: 56px;
 
   background-color: $alternate-background-color;
@@ -101,8 +103,9 @@
  * Site footer
  */
 .site-footer {
-    background-color: $alternate-background-color;
-  border-top: 1px solid $grey-color-light;
+  background-color: $alternate-background-color;
+  // border-top: 1px solid $grey-color-light;
+  box-shadow: 0 0 20px $alternate-background-color;
   padding: $spacing-unit 0;
 }
 
@@ -176,6 +179,7 @@
  * Page content
  */
 .page-content {
+  background-color: white;
   padding: $spacing-unit 0;
 }
 
