@@ -32,9 +32,23 @@ with tf.Session() as sess:
 
 ## Variables and Placeholders
 
-[This question](https://stackoverflow.com/questions/36693740/whats-the-difference-between-tf-placeholder-and-tf-variable) describes pretty well the difference between `tf.Variable()` and `tf.placeholder()` and when each should be used. When using variables, you should initialize their value by creating an initializer `tf.global_variables_initializer()` and running it through the session. With placeholders, be sure to pass their values via a `feed_dict` when running the session.
+[This question](https://stackoverflow.com/questions/36693740/whats-the-difference-between-tf-placeholder-and-tf-variable) describes pretty well the difference between `tf.Variable()` and `tf.placeholder()` and when each should be used.
 
-Since you'll want to feed more than one single example in the input, it is common to create the input placeholder like this:
+### Variables
+
+[Doc here](https://www.tensorflow.org/programmers_guide/variables#the_problem). An important point to remember about variables is that they exist outside the context of a single `session.run` call. Be sure to initialize their value by creating an initializer `tf.global_variables_initializer()` and running it through the session.
+
+Variables are usually defined like so:
+```python
+weights = tf.Variable(tf.truncated_normal([..., ...]))
+biases = tf.Variable(tf.zeros([...]))
+```
+
+### Placeholders
+
+With placeholders, their values should be passed via a `feed_dict` when running the session.
+
+Since you'll want to feed more than one single example in the input (your batch_size is usually greater than 1), it is common to create the input placeholder like this:
 ```python
 input = tf.placeholder(tf.float32, [None, n_features])
 ```
@@ -45,11 +59,6 @@ To define a scalar, create a tensor with 0 dimensions:
 scalar = tf.placeholder(tf.float32, [])
 ```
 
-Variables are usually defined like so:
-```python
-weights = tf.Variable(tf.truncated_normal([..., ...]))
-biases = tf.Variable(tf.zeros([...]))
-```
 
 
 ## ReLUs
@@ -186,7 +195,7 @@ When loading the data tensorflow uses the names it assigns to variables, so be s
 
 ## Names and Scopes
 
-Tensorflow automatically assings names to each variable. To avoid errors when loading data or debugging you may want to set the names manually. You are also able to set name scopes with `tf.name_scope()`, which cause all groups of related objects to have the same naming structure. A good way to do it when defining functions to create the layers is:
+Tensorflow automatically assings names to each variable. These names are used for reusing the same variables in different contexts (or scopes) and when reloading data. You are able to define the naming structure of the variables (like if it was a namespace) with the functions `tf.name_scope()` and `tf.variable_scope` (their difference is well explained in these answers: [[a1]](https://stackoverflow.com/a/43580096/5103881), [[a2]](https://stackoverflow.com/a/37534656/5103881)), which cause all groups of related objects to have the same naming structure. A good way to do it when defining functions to create the layers is:
 ```python
 def fc_layer(input, channels_in, channels_out, name='fc')
     with tf.name_scope(name):
