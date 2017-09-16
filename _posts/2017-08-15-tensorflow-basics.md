@@ -271,4 +271,5 @@ A very interesting feature that TB has is the **Embedding Visualizer**, which le
 
 
 ## Examples
+
 Lots of Tensorflow examples [here](https://github.com/aymericdamien/TensorFlow-Examples).
