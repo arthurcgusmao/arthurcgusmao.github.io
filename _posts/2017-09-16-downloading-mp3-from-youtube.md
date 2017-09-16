@@ -6,8 +6,8 @@ category: programming
 
 This is a simple tutorial to easily download lots of mp3 audios from YouTube videos. We are going to create a python script that uses [`youtube-dl`](https://rg3.github.io/youtube-dl/) to download and convert to audios the videos we are interested in, from an initial list of videos.
 
-1. Download and install [`youtube-dl`](https://rg3.github.io/youtube-dl/);
-2. Make a .txt file where each line corresponds to a link from a YouTube video;
+1. Make sure you have [`youtube-dl`](https://rg3.github.io/youtube-dl/) installed;
+2. Make a .txt file named `list.txt` where each line corresponds to a link from a YouTube video;
 3. Save and run the python script below.
 
 ```python
