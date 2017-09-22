@@ -139,6 +139,34 @@ output, state = tf.nn.dynamic_rnn(cell, embed, sequence_length=source_sequence_l
 ```
 
 
+## Batch normalization
+
+#### Using `tf.layers.batch_normalization()` (higher level)
+
+First, add batch normalization to the layer (usually before the activation function). A new parameter to the layer will be necessary, indicating if it is training or not. Keep in mind that you will need to create a new placeholder for this boolean value later.
+```python
+def fully_connected(prev_layer, num_units, is_training):
+    layer = tf.layers.dense(prev_layer, num_units, activation=None, use_bias=False)
+    layer = tf.layers.batch_normalization(layer, training=is_training)
+    layer = tf.nn.relu(layer)
+```
+
+Then, you will need to tell tensorflow to update the population statistics while training:
+```python
+with tf.control_dependencies(tf.get_collection(tf.GraphKeys.UPDATE_OPS)):
+    train_opt = tf.train.AdamOptimizer(learning_rate).minimize(model_loss)
+```
+
+
+#### Using `tf.nn.batch_normalization()` (lower level)
+
+If you want to implement a lower level batch_normalization function, you will use `tf.nn.batch_normalization()`.
+
+@TODO
+
+
+
+
 ## Training the network
 
 ```python
