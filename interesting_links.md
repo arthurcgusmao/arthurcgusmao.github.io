@@ -25,6 +25,8 @@ it.
 
 [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
+[30 Essential Data Science, Machine Learning & Deep Learning Cheat Sheets](http://www.kdnuggets.com/2017/09/essential-data-science-machine-learning-deep-learning-cheat-sheets.html)
+
 
 ## Math & Statistics
 
