@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Seeing python's logging messages in a Jupyter Notebook"
-category: programming
+category: Programming
 date: 2017-06-18
 ---
 

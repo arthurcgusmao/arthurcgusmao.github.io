@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "TensorFlow basics"
-category: programming
+category: Deep learning
 ---
 
 

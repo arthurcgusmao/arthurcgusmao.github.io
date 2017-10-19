@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Managing your Bibliography with Zotero and Google Drive"
-category: programming
+category: Programming
 ---
 
 This post is a guide for setting up a bunch of softwares that will allow you to have a great free tool for managing bibliography in your computer (Zotero) together with a complete backup of all your data, including metadata like tags and notes, and access to all PDFs in another mobile device like Android. To accomplish this, we are going to use the following tools:

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Useful Linux commands"
-category: programming
+category: Programming
 ---
 
 <!-- # Useful linux commands -->
