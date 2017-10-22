@@ -59,4 +59,21 @@ Since Zotero metadata are saved at the [Zotero Data Directory](https://www.zoter
 
 Recently I found out that [PDF-XChange Editor](https://www.tracker-software.com/product/pdf-xchange-editor) works gracefully with [Wine](https://en.wikipedia.org/wiki/Wine_(software)). I have tried a lot of PDF editors and viewers for Linux and this one is the best by far. Highly recommended.
 
+<!-- An interesting thing for you to do if you want to default the opening of PDF files to evince but make an exception to open them with PDF-XChange when in a specific directory is [this script](https://gist.github.com/slowkow/8834315):
+```bash
+#!/bin/bash
+
+# Check if the pdf is in the Zotero folder.
+if [[ "$1" == */Bibliography/* ]]
+then
+    wine '/home/arthurcgusmao/.wine/drive_c/Program Files (x86)/PDF Editor/PDFXEdit.exe' "$1"
+else
+    evince "$1"
+fi
+```
+Place the script above into `~/.local/bin/` and set it as the default PDF program:
+
+1. Open `~/.local/share/applications/defaults.list`
+2. Add `application/pdf=scriptabove` -->
+
 For your Android device, you will want a PDF viewer that allows you to annotate the document and that is also capable of syncing with Google Drive, since all the attachments will be there. Unfortunately, the default PDF viewer for Google Drive app is not capable of annotating the document, so we have to resort to an external tool. I tested few of them and the one that worked best for me was [XODO PDF Reader & Annotator](https://www.xodo.com/).

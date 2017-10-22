@@ -6,26 +6,12 @@
 
     <div class="footer-col-wrapper">
         <div class="footer-col footer-col-1">
-          <ul class="contact-list">
-            <h3><b>{{ site.author }}</b></h3>
-
-            {% if site.email %}
-            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {% endif %}
 
 
-            {% if site.github_username %}
-            <li>
-              {% include icon-github.html username=site.github_username %}
-            </li>
-            {% endif %}
+            <p class="rss-subscribe"><a href="{{ "/feed.xml" | relative_url }}">subscribe via RSS</a></p>
 
 
-            <li>{{ site.author_about | escape }}</li>
-          </ul>
-        </div>
 
-        <div class="footer-col footer-col-2">
             <h3><b><!--quote--></b></h3>
             <!-- <p>{{ site.quote | escape }}</p> -->
 
@@ -40,6 +26,30 @@
             <!--     {% endfor %} -->
             <!--   </div> -->
             <!-- </nav> -->
+
+
+        </div>
+
+        <div class="footer-col footer-col-2">
+
+
+            <ul class="contact-list">
+              <h3><b>{{ site.author }}</b></h3>
+
+              {% if site.email %}
+              <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+              {% endif %}
+
+
+              {% if site.github_username %}
+              <li>
+                {% include icon-github.html username=site.github_username %}
+              </li>
+              {% endif %}
+
+
+              <li>{{ site.author_about | escape }}</li>
+            </ul>
         </div>
 
 

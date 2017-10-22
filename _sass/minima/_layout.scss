@@ -173,6 +173,34 @@
   }
 }
 
+.rss-subscribe {
+    a { color: white; }
+}
+
+
+/**
+ * Home display of posts
+ */
+.home {
+    .category-head {
+        font-size: 1.4em;
+        margin-bottom: 0.3em;
+    }
+    .post-item {
+        // border: 3px dashed #bbb;
+        // border-radius: 10px;
+        // padding: 10px;
+        // margin: 10px;
+
+        h3 {
+            margin: 0.6em;
+            line-height: 1.1em;
+        }
+        &:last-of-type {
+            margin-bottom: 1.3em;
+        }
+    }
+}
 
 
 /**
