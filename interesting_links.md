@@ -1,13 +1,12 @@
 ---
 layout: page
-title: Interesting links
+title: Other resources
 permalink: /links/
-comments: true
+comments: false
 ---
 
-Some random links that may be interesting to check out. Please leave your
-comments below on which links were more relevant to you, so other people can see
-it.
+Other random resources that may be interesting to check out.
+
 
 ## AI, Machine Learning
 
@@ -63,4 +62,4 @@ it.
 
 ## Personal development
 
-[Actualized.org YouTube Channel](https://www.youtube.com/user/ActualizedOrg)
+[Personal Development Blueprint](https://www.actualized.org/blueprint)
