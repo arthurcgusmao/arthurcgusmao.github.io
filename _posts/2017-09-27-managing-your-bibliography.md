@@ -36,14 +36,29 @@ You can also setup ZotFile to store the attachments into subfolders according to
 
 ### Auto Backup of Zotero Data Directory
 
-Since Zotero metadata are saved at the [Zotero Data Directory](https://www.zotero.org/support/zotero_data), it is important to keep an updated backup of this directory. Otherwise you are at risk of losing all your tags, web links, etc. To accomplish this I set up anacron job to be run daily by doing the following:
+Since Zotero metadata are saved at the [Zotero Data Directory](https://www.zotero.org/support/zotero_data), it is important to keep an updated backup of this directory. Otherwise you are at risk of losing all your tags, web links, etc. To accomplish this I set up anacron to run the script below daily. I did it by following the steps proposed by [this answer](https://askubuntu.com/a/235090). The anacron command I used was:
+```bash
+1   5   zotero.backup   zip /path/to/zoterobackup.zip /path/to/Zotero/ -r
+```
 
+
+
+
+ <!-- (simply put the script into `/etc/cron.daily/`):
+
+```bash
+#! /bin/bash
+zip /path/to/zoterobackup.zip /path/to/Zotero/ -r
+``` -->
+
+
+<!--
 1. Open `/etc/anacrontab`
 2. Append the following line:
 ```bash
 1 5 zotero.backup       zip /path/to/zoterobackup.zip /path/to/Zotero/ -r
 ```
-3. Save the file and test the command by running `sudo anacron -f`
+3. Save the file and test the command by running `sudo anacron -f` -->
 
 <!--
 1. Open a terminal and run `crontab -e`
