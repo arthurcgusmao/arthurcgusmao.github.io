@@ -44,32 +44,6 @@ Since Zotero metadata are saved at the [Zotero Data Directory](https://www.zoter
 
 
 
- <!-- (simply put the script into `/etc/cron.daily/`):
-
-```bash
-#! /bin/bash
-zip /path/to/zoterobackup.zip /path/to/Zotero/ -r
-``` -->
-
-
-<!--
-1. Open `/etc/anacrontab`
-2. Append the following line:
-```bash
-1 5 zotero.backup       zip /path/to/zoterobackup.zip /path/to/Zotero/ -r
-```
-3. Save the file and test the command by running `sudo anacron -f` -->
-
-<!--
-1. Open a terminal and run `crontab -e`
-2. Append the following line to the file:
-```bash
-0 0 * * FRI zip /path/to/zoterobackup.zip /path/to/Zotero/ -r
-```
-3. Save the file and make sure the cron is set by running `crontab -l` -->
-
-
-
 ## Viewing and annotating your PDFs
 
 Recently I found out that [PDF-XChange Editor](https://www.tracker-software.com/product/pdf-xchange-editor) works gracefully with [Wine](https://en.wikipedia.org/wiki/Wine_(software)). I have tried a lot of PDF editors and viewers for Linux and this one is the best by far. Highly recommended.
