@@ -30,3 +30,11 @@ logging.info('Hello world!')
 # changes default formatting of float to 3 decimal places
 pd.options.display.float_format = '{:.3f}'.format
 ```
+
+<!--
+## Matplotlib
+
+### Two plots side by side
+
+https://stackoverflow.com/a/42818547/5103881
+-->

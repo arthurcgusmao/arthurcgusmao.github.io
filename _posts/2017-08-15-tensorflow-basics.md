@@ -10,9 +10,9 @@ category: Deep learning
 This is what worked best for me, in Ubuntu 16.04.
 
 
-1. Install cuda using apt-get [link here](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#axzz4pToHShYz).
-2. Install cudnn without using a .deb package [link here](https://developer.nvidia.com/rdp/cudnn-download). There will be 2 directories inside the folder when you uncompress the .tar file: include and lib64. They correspond to the respective directories with the same name inside /usr/local/cuda. The only version of cudnn I tried which made the build be successful was the 5. Installing the .deb package provided by nvidia never seemed to get the right paths.
-3. For maximum performance, [build tensorflow from source](https://gist.github.com/Brainiarc7/6d6c3f23ea057775b72c52817759b25c).
+1. Install cuda using apt-get ([link here](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#axzz4pToHShYz)).
+2. Install cudnn without using a .deb package ([link here](https://developer.nvidia.com/rdp/cudnn-download), installing the .deb package provided by nvidia never seemed to get the right paths). When you uncompress the .tar file, there will be 2 directories inside the folder: include and lib64. They correspond to the directories with the same name inside /usr/local/cuda where you should move the respective files. That is all that is needed.
+3. Install tensorflow using Anaconda ([instructions here](https://www.tensorflow.org/install/install_linux#InstallingAnaconda)) using [individual whl files](https://github.com/tensorflow/tensorflow/blob/master/README.md).
 
 
 Testing:
