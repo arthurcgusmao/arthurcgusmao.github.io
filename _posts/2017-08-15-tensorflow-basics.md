@@ -30,6 +30,12 @@ with tf.Session() as sess:
 ```
 
 
+Obs: because you installed cuda via apt-get, it may be interesting to put it on hold so that it doesn't get updated automatically and end up breaking down your workflow unexpectedly, since tensorflow binaries are specific to a cuda version:
+```bash
+sudo apt-mark hold cuda-8.0
+```
+
+
 ## Variables and Placeholders
 
 [This question](https://stackoverflow.com/questions/36693740/whats-the-difference-between-tf-placeholder-and-tf-variable) describes pretty well the difference between `tf.Variable()` and `tf.placeholder()` and when each should be used.
