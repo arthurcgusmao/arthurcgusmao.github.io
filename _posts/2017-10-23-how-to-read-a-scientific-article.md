@@ -53,44 +53,45 @@ Notes improve recall and comprehension. It is useful to develop a template which
 
 
 <div id="note-taking-template">
+    <h3>My notes</h3>
 
-    <h3># General subject</h3>
+    <h4># General subject</h4>
     <p>...</p>
     <br/>
 
-    <h3># Specific subject</h3>
+    <h4># Specific subject</h4>
     <p>...</p>
     <br/>
 
-    <h3># Hypothesis</h3>
+    <h4># Hypothesis</h4>
     <p>...</p>
     <br/>
 
-    <h3># Methodology</h3>
+    <h4># Methodology</h4>
     <p>...</p>
     <br/>
 
-    <h3># Results</h3>
+    <h4># Results</h4>
     <p>...</p>
     <br/>
 
-    <h3># Summary of key points</h3>
+    <h4># Summary of key points</h4>
     <p>...</p>
     <br/>
 
-    <h3># Context (how this article relates to other work in the field)</h3>
+    <h4># Context (how this article relates to other work in the field)</h4>
     <p>...</p>
     <br/>
 
-    <h3># Significance (to the field and to your own work)</h3>
+    <h4># Significance (to the field and to your own work)</h4>
     <p>...</p>
     <br/>
 
-    <h3># Important cited references</h3>
+    <h4># Important cited references</h4>
     <p>...</p>
     <br/>
 
-    <h3># Other comments</h3>
+    <h4># Other comments</h4>
     <p>...</p>
     <br/>
 
@@ -103,5 +104,8 @@ Notes improve recall and comprehension. It is useful to develop a template which
     }
     #note-taking-template h3:first-of-type {
         margin-top: 0;
+    }
+    #note-taking-template h4 {
+        font-weight: bold;
     }
 </style>
