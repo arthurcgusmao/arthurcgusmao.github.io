@@ -38,3 +38,8 @@ pd.options.display.float_format = '{:.3f}'.format
 
 https://stackoverflow.com/a/42818547/5103881
 -->
+
+
+## Using git to version control jupyter notebooks
+
+[This post](http://timstaley.co.uk/posts/making-git-and-jupyter-notebooks-play-nice/) explains in a very nice way different ways we can combine jupyter notebook with git tracking only changes in code.
