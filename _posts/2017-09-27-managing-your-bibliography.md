@@ -66,3 +66,10 @@ Place the script above into `~/.local/bin/` and set it as the default PDF progra
 2. Add `application/pdf=scriptabove` -->
 
 For your Android device, you will want a PDF viewer that allows you to annotate the document and that is also capable of syncing with Google Drive, since all the attachments will be there. Unfortunately, the default PDF viewer for Google Drive app is not capable of annotating the document, so we have to resort to an external tool. I tested few of them and the one that worked best for me was [XODO PDF Reader & Annotator](https://www.xodo.com/).
+
+
+## Other configurations
+
+### Recursive subcollections in Zotero
+
+By default Zotero does not list items of sub-collections in the item-list. You can modify that through the [recursive collections](https://forums.zotero.org/discussion/3317/recursive-display-of-all-items-of-a-collection-and-its-subcollections/#Comment_14225) option.
