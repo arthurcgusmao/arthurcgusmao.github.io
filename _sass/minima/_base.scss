@@ -34,7 +34,8 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-  margin-bottom: $spacing-unit / 3;
+    // margin-bottom: $spacing-unit / 3;
+  margin-bottom: 1em;
 }
 
 
@@ -70,6 +71,7 @@ ul, ol {
 }
 
 li {
+    margin-bottom: 0.4em;
   > ul,
   > ol {
     margin-bottom: 0;
@@ -82,7 +84,7 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: $base-font-weight;
+    font-weight: $title-base-font-weight;
     font-family: $title-base-font-family;
     line-height: $title-base-line-height;
 }
@@ -131,7 +133,7 @@ blockquote {
  */
 pre,
 code {
-  font-size: 15px;
+  font-size: 14px;
   border: 1px solid $grey-color-light;
   border-radius: 3px;
   background-color: #eee;

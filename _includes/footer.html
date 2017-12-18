@@ -2,55 +2,11 @@
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
+    <!-- <h2 class="footer-heading">{{ site.title | escape }}</h2> -->
 
-    <div class="footer-col-wrapper">
-        <div class="footer-col footer-col-1">
-
-
-            <p class="rss-subscribe"><a href="{{ "/feed.xml" | relative_url }}">subscribe via RSS</a></p>
-
-
-
-            <h3><b><!--quote--></b></h3>
-            <!-- <p>{{ site.quote | escape }}</p> -->
-
-            <!-- <h3>Topics</h3> -->
-
-            <!-- <nav class="site-nav-footer"> -->
-            <!--   <div class="trigger"> -->
-            <!--     {% for my_page in site.pages %} -->
-            <!--     {% if my_page.title %} -->
-            <!--     <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a> -->
-            <!--     {% endif %} -->
-            <!--     {% endfor %} -->
-            <!--   </div> -->
-            <!-- </nav> -->
-
-
-        </div>
-
-        <div class="footer-col footer-col-2">
-
-
-            <ul class="contact-list">
-              <h3><b>{{ site.author }}</b></h3>
-
-              {% if site.email %}
-              <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-              {% endif %}
-
-
-              {% if site.github_username %}
-              <li>
-                {% include icon-github.html username=site.github_username %}
-              </li>
-              {% endif %}
-
-
-              <li>{{ site.author_about | escape }}</li>
-            </ul>
-        </div>
+    <p>GitHub profile: {% include icon-github.html username=site.github_username %}</p>
+    <p class="rss-subscribe">Subscribe to this blog <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.author }}</p>
 
 
     </div>

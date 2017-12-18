@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Other resources
-permalink: /links/
+title: Bookmarks
+permalink: /bookmarks/
 comments: false
 ---
 

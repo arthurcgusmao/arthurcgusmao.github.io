@@ -5,13 +5,15 @@
   // border-top: 5px solid $grey-color-dark;
   // border-bottom: 1px solid $grey-color-light;
   // @acg: instead of borders I decided to put box-shadow
-  box-shadow: 0 0 20px $alternate-background-color;
+  // box-shadow: 0 0 20px $alternate-background-color;
+  border-bottom: 3px double #aaa;
   min-height: 56px;
 
   background-color: $alternate-background-color;
 
   // Positioning context for the mobile navigation icon
   position: relative;
+  text-align: center;
 }
 
 .site-title {
@@ -21,7 +23,7 @@
   font-weight: 300;
   line-height: 56px;
   margin-bottom: 0;
-  float: left;
+  // float: left;
 
   &,
   &:visited {
@@ -30,19 +32,27 @@
 
   @include media-query($on-palm) {
       font-size: 20px;
+      float: left;
   }
+}
+img#site-logo {
+    margin: 0;
+    max-height: 1.8em;
+    margin-right: 20px;
 }
 
 .site-nav {
-  float: right;
+  display: inline-block;
   line-height: 56px;
 
   .menu-icon {
     display: none;
+    background: #444;
   }
 
   .page-link {
     color: $alternate-text-color;
+    font-family: $title-base-font-family;
     line-height: $base-line-height;
 
     // Gaps between nav items, but not on the last one
@@ -52,6 +62,7 @@
   }
 
   @include media-query($on-palm) {
+    float: right;
     position: absolute;
     top: 9px;
     right: $spacing-unit / 2;
@@ -104,8 +115,15 @@
 .site-footer {
   background-color: $alternate-background-color;
   // border-top: 1px solid $grey-color-light;
-  box-shadow: 0 0 20px $alternate-background-color;
-  padding: $spacing-unit 0;
+  // box-shadow: 0 0 20px $alternate-background-color;
+  border-top: 3px double #aaa;
+  // padding: $spacing-unit 0;
+  padding: 1em 0;
+  font-size: 0.85em;
+  p {
+    margin: 0.3em;
+  }
+  text-align: center;
 }
 
 .footer-heading {
@@ -172,9 +190,9 @@
   }
 }
 
-.rss-subscribe {
-    a { color: white; }
-}
+// .rss-subscribe {
+//     a { color: white; }
+// }
 
 
 /**
@@ -182,7 +200,7 @@
  */
 .home {
     .category-head {
-        font-size: 1.4em;
+        font-size: 1.5em;
         margin-bottom: 0.3em;
     }
     .post-item {
@@ -191,8 +209,10 @@
         // padding: 10px;
         // margin: 10px;
 
-        h3 {
-            margin: 0.6em;
+        p {
+            margin: 0.5em;
+            margin-left: 0;
+            // font-weight: bold;
         }
         &:last-of-type {
             margin-bottom: 1.3em;
@@ -242,11 +262,11 @@
 }
 
 .post-title {
-  font-size: 32px;
+  font-size: $title-base-font-size * 2;
   margin-bottom: 0.2em;
 
   @include media-query($on-laptop) {
-    font-size: 24px;
+    font-size: $title-base-font-size * 1.5;
   }
 }
 
@@ -254,30 +274,31 @@
   margin-bottom: $spacing-unit;
 
   h2, h3, h4, h5, h6 {
-      margin-top: 1em;
+      margin-top: 1.2em;
+      margin-bottom: 0.7em;
   }
 
   h2 {
-    font-size: 24px;
+    font-size: $title-base-font-size * 1.5;
 
     @include media-query($on-laptop) {
-      font-size: 20px;
+      font-size: $title-base-font-size * 1.25;
     }
   }
 
   h3 {
-    font-size: 20px;
+    font-size: $title-base-font-size * 1.25;
 
     @include media-query($on-laptop) {
-      font-size: 18px;
+      font-size: $title-base-font-size * 1.13;
     }
   }
 
   h4 {
-    font-size: 18px;
+    font-size: $title-base-font-size * 1.13;
 
     @include media-query($on-laptop) {
-      font-size: 17px;
+      font-size: $title-base-font-size * 1.07;
     }
   }
 
