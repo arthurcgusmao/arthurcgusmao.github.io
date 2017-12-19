@@ -54,6 +54,7 @@ img#site-logo {
     color: $alternate-text-color;
     font-family: $title-base-font-family;
     line-height: $base-line-height;
+    font-size: 18px;
 
     // Gaps between nav items, but not on the last one
     &:not(:last-child) {
@@ -137,7 +138,7 @@ img#site-logo {
   list-style: none;
   margin-left: 0;
   a {
-      color: powderblue;
+      // color: powderblue;
   }
 }
 

@@ -3,9 +3,10 @@ layout: page
 title: Bookmarks
 permalink: /bookmarks/
 comments: false
+order: 10
 ---
 
-Other random resources that may be interesting to check out.
+Random resources I found over the web that may be interesting to check out.
 
 
 ## AI, Machine Learning
