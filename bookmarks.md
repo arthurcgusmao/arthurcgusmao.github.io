@@ -3,7 +3,7 @@ layout: page
 title: Bookmarks
 permalink: /bookmarks/
 comments: false
-order: 10
+order_nav: 10
 ---
 
 Random resources I found over the web that may be interesting to check out.

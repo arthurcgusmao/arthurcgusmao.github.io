@@ -54,11 +54,15 @@ img#site-logo {
     color: $alternate-text-color;
     font-family: $title-base-font-family;
     line-height: $base-line-height;
-    font-size: 18px;
+    font-size: 1.125em;
 
     // Gaps between nav items, but not on the last one
     &:not(:last-child) {
       margin-right: 20px;
+    }
+
+    @include media-query($on-palm) {
+        font-size: 1.25em;
     }
   }
 
@@ -197,9 +201,9 @@ img#site-logo {
 
 
 /**
- * Home display of posts
+ * Custom display of posts list
  */
-.home {
+.posts-list {
     .category-head {
         font-size: 1.5em;
         margin-bottom: 0.3em;

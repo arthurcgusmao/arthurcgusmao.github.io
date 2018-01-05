@@ -4,7 +4,7 @@ title: Portfolio
 permalink: /portfolio/
 comments: false
 order_nav: 3
-order_home: 4
+#order_home: 4
 all_projects:
     - {
         category_name: "Deep learning",

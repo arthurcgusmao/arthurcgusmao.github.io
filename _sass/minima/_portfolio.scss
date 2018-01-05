@@ -1,0 +1,53 @@
+.portfolio {
+
+    h2 {
+        margin-top: 1em;
+    }
+
+    div.projects-wrapper {
+        text-align: center;
+        position: relative;
+
+        a.project-card-wrapper-link {
+            color: black;
+        }
+
+        // div.project-overlay {
+        //     background-color: rgba(0,0,0,0.5);
+        //     position: absolute;
+        //     z-index: 15;
+        // }
+
+        div.project-card {
+            display: inline-block;
+            // background-color: lighten($grey-color-light, 5%);
+            &:hover {
+                $project-hover-hl-color: #4BB;
+                border-color: $project-hover-hl-color;
+                box-shadow: 0 0 1em $project-hover-hl-color;
+            }
+            border: 2px solid lightgrey;
+            $proj-border-radius: 0.3em;
+            border-radius: $proj-border-radius;
+            padding: 1em;
+            width: 90%;
+            margin: 0.5em auto;
+
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: $proj-border-radius;
+            }
+            h4 {
+                font-size: 1.2em;
+                margin: 0.5em auto;
+                text-align: left;
+            }
+            p {
+                font-size: 0.8em;
+                margin: 0.3em auto;
+                text-align: left;
+            }
+        }
+    }
+}

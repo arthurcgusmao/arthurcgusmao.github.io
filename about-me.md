@@ -3,7 +3,7 @@ layout: page
 title: About Me
 permalink: /about-me/
 comments: false
-order: 1
+order_nav: 1
 ---
 
 

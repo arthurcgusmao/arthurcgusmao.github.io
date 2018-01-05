@@ -6,35 +6,15 @@ layout: default
 
   {{ content }}
 
-  <!-- <h1 class="page-heading">Posts</h1>
+  <!-- {{ site.pages }} -->
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul> -->
-  <div id="archives">
-  {% for category in site.categories reversed %}
-    <div class="category-group">
-      {% capture category_name %}{{ category | first }}{% endcapture %}
-      <div id="#{{ category_name | slugize }}"></div>
-
-      <h2 class="category-head">{{ category_name }}</h2>
-      <a name="{{ category_name | slugize }}"></a>
-      {% for post in site.categories[category_name] %}
-        <div class="post-item">
-            <p><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></p>
-        </div>
-      {% endfor %}
-    </div>
+  {% assign sorted = (site.pages | sort: 'order_home') %}
+      {% for my_page in sorted %}
+          {% if my_page.order_home %}
+            <h1>{{ my_page.title }}</h1>
+            {{ my_page.content | markdownify }}
+            <h1></h1>
+        {% endif %}
   {% endfor %}
-  </div>
 
 </div>
