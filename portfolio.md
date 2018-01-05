@@ -1,0 +1,88 @@
+---
+layout: portfolio
+title: Portfolio
+permalink: /portfolio/
+comments: false
+order_nav: 3
+order_home: 4
+all_projects:
+    - {
+        category_name: "Deep learning",
+        projects: [
+            {
+                name: "EEG Grast and Lift (in development)",
+                description: "",
+                image: "",
+                link: ""
+            },
+            {
+                name: "Face Generation (Generative Adversarial Networks)",
+                description: "*Generative adversarial networks* (GANs) were implemented to generate new images of faces. Initial architecture and hyperparameter tuning was done using the MNIST dataset, and then the model was further adjusted and trained on the CelebA dataset.",
+                image: "/images/projects_cover/dlnd_face_generation.png",
+                link: "https://github.com/arthurcgusmao/dlnd_face_generation/blob/master/dlnd_face_generation.ipynb"
+            },
+            {
+                name: "Language Translation (Sequence-to-Sequence RNNs)",
+                description: "A *sequence-to-sequence recurrent neural network* was developed to translate new sentences from English to French. For the training data, a dataset that consisted of small sentences written in both languages was used.",
+                image: "/images/projects_cover/dlnd_language_translation.png",
+                link: "https://github.com/arthurcgusmao/dlnd_language_translation/blob/master/dlnd_language_translation.ipynb"
+            },
+            {
+                name: "TV Script Generation (Recurrent Neural Networks)",
+                description: "In this project a Simpsons TV script was generated using *recurrent neural networks* (RNNs). The RNN cell used was from TensorFlow's contrib package implementation.",
+                image: "/images/projects_cover/dlnd_tv_script_generation.png",
+                link: "https://github.com/arthurcgusmao/dlnd_tv_script_generation/blob/master/dlnd_tv_script_generation.ipynb"
+            },
+            {
+                name: "CIFAR-10 Image Classification (Convolutional Neural Networks)",
+                description: "A *convolutional neural network* was trained to classify images from the CIFAR-10 dataset. Concepts such as *max pooling* and *dropout* were explored.",
+                image: "/images/projects_cover/dlnd_image_classification.png",
+                link: "https://github.com/arthurcgusmao/dlnd_image_classification/blob/master/dlnd_image_classification.ipynb"
+            },
+            {
+                name: "My First Neural Network (from scratch)",
+                description: "A neural network was implemented from scratch in Python and used to predict daily bike rental ridership using a bike sharing dataset.",
+                image: "/images/projects_cover/first_nn.png",
+                link: "https://github.com/arthurcgusmao/dlnd_first_neural_network/blob/master/Your_first_neural_network.ipynb"
+            }
+        ]
+    }
+    - {
+        category_name: "Machine learning",
+        projects: [
+            {
+                name: "Train a Smartcab to Drive (Reinforcement Learning)",
+                description: "Reinforcement learning techniques were applied for a self-driving agent in a simplified world to aid it in effectively reaching its destinations in the allotted time. A *Q-learning* algorithm was implemented.",
+                image: "/images/projects_cover/smartcab.png",
+                link: "https://github.com/arthurcgusmao/mlnd_smartcab/blob/master/smartcab.ipynb"
+            },
+            {
+                name: "Creating Customer Segments (Unsupervised Learning)",
+                description: "A dataset containing data on various customers from a wholesale distributor in Lisbon, Portugal, was explored using *unsupervised learning* techniques. The project included the of algorithms such as *principal component analysis* and *gaussian mixture models*, alongside different visualization techniques.",
+                image: "/images/projects_cover/customer_segments.png",
+                link: "https://github.com/arthurcgusmao/mlnd_customer_segments/blob/master/customer_segments.ipynb"
+            },
+            {
+                name: "Student Intervention System (Supervised Learning)",
+                description: "A model was built using supervised learning in order to identify students who might need early intervention before they fail to graduate. Initial data contained around 30 variables. Three models were selected and evaluated: *support vector machines*, *decision trees* and *AdaBoosting* (with *decision trees*).",
+                image: "/images/projects_cover/student_intervention.png",
+                link: "https://github.com/arthurcgusmao/mlnd_student_intervention/blob/master/student_intervention.ipynb"
+            },
+            {
+                name: "Boston Housing (Supervised Learning Fundamental Concepts)",
+                description: "This project used data data collected from homes in suburbs of Boston, Massachusetts, from the UCI Machine Learning Repository. Fundamental machine learning concepts such as *overfitting* and *model complexity* were analyzed using a *decision tree* model.",
+                image: "/images/projects_cover/boston_housing.png",
+                link: "https://github.com/arthurcgusmao/mlnd_boston_housing/blob/master/boston_housing.ipynb"
+            },
+            {
+                name: "Titanic Survival Exploration (Basic Data Exploration)",
+                description: "This project consisted of a basic exploration of data from the 1912 Titanic disaster. Decision functions were created based on each passenger’s features, such as sex and age. The technique applied in the project corresponds to a very simple and manual implementation of the *decision tree* model.",
+                image: "/images/projects_cover/titanic_survival_exploration.png",
+                link: "https://github.com/arthurcgusmao/mlnd_titanic_survival_exploration/blob/master/titanic_survival_exploration.ipynb"
+            }
+        ]
+    }
+---
+
+
+Here are some projects that I developed. I Hope they can give you insights in some form! Click on a project to go to its repository.

@@ -19,11 +19,14 @@ layout: default
 
         <div class="projects-wrapper">
             {% for project in proj_cat.projects %}
-                <div class="project-card">
-                    <img src="{{ project.image }}">
-                    <h4>{{ project.name }}</h4>
-                    <p>{{ project.description }}</p>
-                </div>
+                <a href="{{ project.link }}" class="project-card-wrapper-link">
+                    <!-- <div class="project-overlay"></div> -->
+                    <div class="project-card">
+                        <img src="{{ project.image }}">
+                        <h4>{{ project.name }}</h4>
+                        <p>{{ project.description | markdownify}}</p>
+                    </div>
+                </a>
             {% endfor %}
         </div>
 
