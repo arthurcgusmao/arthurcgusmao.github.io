@@ -269,9 +269,6 @@ img#site-logo {
 h1, .post-title {
   font-size: $title-base-font-size * 2;
   margin-bottom: 0.2em;
-  &.home-section-title {
-      margin-top: 1em;
-  }
 
   @include media-query($on-laptop) {
     font-size: $title-base-font-size * 1.5;

@@ -13,7 +13,14 @@ layout: portfolio
           {% if my_page.order_home %}
             <h1 class="home-section-title">{{ my_page.title }}</h1>
             {{ my_page.content | markdownify }}
-            <!-- <div class="home-section-spacer" style="height: 2em;"></div> -->
+
+            {% if my_page.order_home != 99 %}
+                <div class="home-section-spacer" style="height: 2em;"></div>
+                <hr/>
+                <div class="home-section-spacer" style="height: 2em;"></div>
+            {% else %}
+                <!-- nothing -->
+            {% endif %}
         {% endif %}
   {% endfor %}
 
