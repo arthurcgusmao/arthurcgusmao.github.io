@@ -3,9 +3,9 @@
     projects: [
         {
             name: "EEG Grast and Lift (in development)",
-            description: "",
-            image: "",
-            link: ""
+            description: "In this project a deep learning algorithm that is able to predict what movement a person is willing to make via EEG signals will be developed. This problem was posted as a Kaggle competition. The metric that will be used to evaluate the performance is the the mean column-wise AUC.",
+            image: "/images/projects_cover/eeg_grasp_and_lift.png",
+            link: "https://github.com/arthurcgusmao/eeg-grasp-and-lift/blob/master/capstone_proposal.md"
         },
         {
             name: "Face Generation (Generative Adversarial Networks)",
