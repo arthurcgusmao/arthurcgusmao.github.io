@@ -204,10 +204,10 @@ img#site-logo {
  * Custom display of posts list
  */
 .posts-list {
-    .category-head {
-        font-size: 1.5em;
-        margin-bottom: 0.3em;
-    }
+    // .category-head {
+    //     font-size: 1.5em;
+    //     margin-bottom: 0.3em;
+    // }
     .post-item {
         // border: 3px dashed #bbb;
         // border-radius: 10px;
@@ -277,40 +277,40 @@ h1, .post-title {
 
 .post-content {
   margin-bottom: $spacing-unit;
+}
 
-  h2, h3, h4, h5, h6 {
-      margin-top: 1.2em;
-      margin-bottom: 0.7em;
-  }
+h2, h3, h4, h5, h6 {
+  margin-top: 1.2em;
+  margin-bottom: 0.7em;
+}
 
-  h2 {
-    font-size: $title-base-font-size * 1.5;
+h2 {
+font-size: $title-base-font-size * 1.5;
 
-    @include media-query($on-laptop) {
-      font-size: $title-base-font-size * 1.25;
-    }
-  }
+@include media-query($on-laptop) {
+  font-size: $title-base-font-size * 1.25;
+}
+}
 
-  h3 {
-    font-size: $title-base-font-size * 1.25;
+h3 {
+font-size: $title-base-font-size * 1.25;
 
-    @include media-query($on-laptop) {
-      font-size: $title-base-font-size * 1.13;
-    }
-  }
+@include media-query($on-laptop) {
+  font-size: $title-base-font-size * 1.13;
+}
+}
 
-  h4 {
-    font-size: $title-base-font-size * 1.13;
+h4 {
+font-size: $title-base-font-size * 1.13;
 
-    @include media-query($on-laptop) {
-      font-size: $title-base-font-size * 1.07;
-    }
-  }
+@include media-query($on-laptop) {
+  font-size: $title-base-font-size * 1.07;
+}
+}
 
-  dl {
-      margin-left: 1.5em;
-  }
-  dd {
-      margin-left: 2.5em;
-  }
+dl {
+  margin-left: 1.5em;
+}
+dd {
+  margin-left: 2.5em;
 }

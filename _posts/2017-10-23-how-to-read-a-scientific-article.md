@@ -1,6 +1,6 @@
 ---
 title: How to read a scientific article
-category: Academics
+category: Academia
 layout: post
 ---
 

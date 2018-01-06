@@ -17,11 +17,11 @@ order_home: 3
 
     <h2 class="category-head">{{ category_name }}</h2>
     <a name="{{ category_name | slugize }}"></a>
+    <ul>
     {% for post in site.categories[category_name] %}
-      <div class="post-item">
-          <p><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></p>
-      </div>
+          <li><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
     {% endfor %}
+    </ul>
   </div>
 {% endfor %}
 </div>
