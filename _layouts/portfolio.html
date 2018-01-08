@@ -11,7 +11,7 @@ layout: default
 
     {% for proj_cat in site.data.projects %}
 
-        <h2>{{ proj_cat.category_name }}</h2>
+        <h2 id="{{ proj_cat.category_name | remove: " " | downcase }}">{{ proj_cat.category_name }}</h2>
 
         <div class="projects-wrapper">
             {% for project in proj_cat.projects %}
