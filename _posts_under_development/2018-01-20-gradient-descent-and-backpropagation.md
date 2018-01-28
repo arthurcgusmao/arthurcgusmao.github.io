@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Gradient descent & Backpropagation"
-category: Deep learning
+#category: Deep learning
 mathjax: true
 header-includes:
     \usepackage{bm}
