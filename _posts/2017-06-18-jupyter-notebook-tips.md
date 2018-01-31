@@ -40,6 +40,21 @@ https://stackoverflow.com/a/42818547/5103881
 -->
 
 
+## Changing Python's path
+
+It is possible to change the path Python uses to search for files so that you can import modules that otherwise would only be possible by having your notebook file in the same directory. This is useful when you want to have a specific folder for your notebooks in order to be more organized.
+
+To do that, run the following code:
+
+```python
+import sys
+sys.path.insert(0, '/path/to/application/app/folder')
+```
+
+For more details see [this answer](https://stackoverflow.com/a/4383597/5103881).
+
+
+
 ## Using git to version control jupyter notebooks
 
 [This post](http://timstaley.co.uk/posts/making-git-and-jupyter-notebooks-play-nice/) explains in a very nice way different ways we can combine jupyter notebook with git tracking only changes in code.
