@@ -54,6 +54,28 @@ sys.path.insert(0, '/path/to/application/app/folder')
 For more details see [this answer](https://stackoverflow.com/a/4383597/5103881).
 
 
+### Fix installed packages not being imported
+
+Sometimes, when using conda, you may find that you're not able to import installed packages into your notebook. One of the reasons may be because Jupyter is not finding the correct kernel.
+
+To find out what kernel is being used, run (within the notebook):
+
+```python
+import sys
+sys.path
+sys.executable
+```
+
+If you find that this is the problem, a simple solution is simply installing jupyter within the conda environment you are using:
+
+```bash
+source activate [yourenvname]
+conda install jupyter
+```
+
+Keep in mind that this will install another instance of jupyter in your machine, occupying space. If you want to save space there are alternatives. See [here](https://github.com/jupyter/notebook/issues/2563).
+
+
 
 ## Using git to version control jupyter notebooks
 
