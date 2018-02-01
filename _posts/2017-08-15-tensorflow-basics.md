@@ -122,13 +122,16 @@ In order to compensate for dropped units, the function automatically multiplies 
 
 ## Embedding Layers
 
-`tf.nn.embedding_lookup()` does the job. In the example below we create an embedding layer for the case of word representation, considering that the number of possible words (or, in practice, the number of possible indexes we are going to feed into the network) is `vocab_size` and the number of latent factors in the embedding being `embed_dim`:
+[`tf.nn.embedding_lookup()`](https://www.tensorflow.org/api_docs/python/tf/nn/embedding_lookup) does the job of retrieving rows automatically from an embedding layer. In the example below we create an embedding layer for the case of word representation, considering that the number of possible words (or, in general, the number of possible indexes we are going to feed into the network) is `vocab_size` and the number of latent factors in the embedding is `embed_dim`:
 
 ```python
 embedding = tf.Variable(tf.random_uniform([vocab_size, embed_dim], -1, 1))
-embed = tf.nn.embedding_lookup(embedding, input_data)
+embed = tf.nn.embedding_lookup(embedding, ids)
 ```
 
+`ids` should be a tensor with type `int32` or `int64` containing the ids of the rows to be retrieved.
+
+[This answer](https://stackoverflow.com/a/41922877/5103881) in stackoverflow has a more detailed explanation.
 
 
 ## LSTMs
@@ -166,9 +169,7 @@ with tf.control_dependencies(tf.get_collection(tf.GraphKeys.UPDATE_OPS)):
 
 #### Using `tf.nn.batch_normalization()` (lower level)
 
-If you want to implement a lower level batch_normalization function, you will use `tf.nn.batch_normalization()`.
-
-@TODO
+If you want to implement a lower level batch_normalization function, you will use `tf.nn.batch_normalization()`. See the documentation for more details. [This jupyter notebook](https://github.com/arthurcgusmao/dlnd_batch_normalization/blob/master/Batch_Normalization_Solutions.ipynb) can be of help as well.
 
 
 
