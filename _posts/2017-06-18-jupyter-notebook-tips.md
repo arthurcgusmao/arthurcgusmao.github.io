@@ -54,7 +54,7 @@ sys.path.insert(0, '/path/to/application/app/folder')
 For more details see [this answer](https://stackoverflow.com/a/4383597/5103881).
 
 
-### Fix installed packages not being imported
+## Fix installed packages not being imported
 
 Sometimes, when using conda, you may find that you're not able to import installed packages into your notebook. One of the reasons may be because Jupyter is not finding the correct kernel.
 
@@ -80,3 +80,21 @@ Keep in mind that this will install another instance of jupyter in your machine,
 ## Using git to version control jupyter notebooks
 
 [This post](http://timstaley.co.uk/posts/making-git-and-jupyter-notebooks-play-nice/) explains in a very nice way different ways we can combine jupyter notebook with git tracking only changes in code.
+
+
+## Tracking time
+
+Jupyter and IPython make it really easy to track time in the cells you execute:
+
+```python
+%time print('%time will output the time of running only this line')
+```
+
+```python
+%%time
+print('Jupyter can also track')
+print('the time that running an entire cell took')
+print('when you use %%time')
+```
+
+For more accurate results you may also want to use `timeit` instead of `time`, which Jupyter also allows for. See [this answer](https://stackoverflow.com/questions/17579357/time-time-vs-timeit-timeit) for more details on the difference between the two.
