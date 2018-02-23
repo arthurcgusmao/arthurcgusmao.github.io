@@ -72,4 +72,9 @@ For your Android device, you will want a PDF viewer that allows you to annotate 
 
 ### Recursive subcollections in Zotero
 
-By default Zotero does not list items of sub-collections in the item-list. You can modify that through the [recursive collections](https://forums.zotero.org/discussion/3317/recursive-display-of-all-items-of-a-collection-and-its-subcollections/#Comment_14225) option.
+By default Zotero does not list items of sub-collections in the item-list. You can modify that through the [recursive collections](https://forums.zotero.org/discussion/3317/recursive-display-of-all-items-of-a-collection-and-its-subcollections/#Comment_14225) advanced option:
+
+
+![Set the custom variable `extensions.zotero.recursiveCollections` to true by double clicking over the Value column in the respective line.][img:zotsubcol]
+
+[img:zotsubcol]: /images/posts/zotero_recursivecollections.png
