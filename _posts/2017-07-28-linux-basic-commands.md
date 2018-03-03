@@ -39,6 +39,16 @@ Having a `.pem` file:
 scp -i key.pem file1 (...) fileN ubuntu@0.0.0.0://home/ubuntu
 ```
 
+Using rsync via ssh:
+```bash
+rsync -avz -e "ssh -p 22000" ~/file.txt user@123.123.123.123:/home/user/
+```
+rsync options:
+
+- a: Archive mode (see [this answer](https://serverfault.com/a/141778/360330))
+- v: Verbose
+- z: Compress data during transfer
+- e: Specify remote shell to use (ssh)
 
 ### Search for files
 
