@@ -34,7 +34,7 @@ ssh -i key.pem ubuntu@0.0.0.0
 
 
 ### Copy files between machines
-Having a `.pem` file:
+Having a `.pem` file and using scp:
 ```bash
 scp -i key.pem file1 (...) fileN ubuntu@0.0.0.0://home/ubuntu
 ```
@@ -49,6 +49,8 @@ rsync options:
 - v: Verbose
 - z: Compress data during transfer
 - e: Specify remote shell to use (ssh)
+
+See [this blog post](https://www.tecmint.com/rsync-local-remote-file-synchronization-commands/) for a great depiction of many other different ways to use rsync.
 
 ### Search for files
 
