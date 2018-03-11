@@ -48,16 +48,16 @@ The mode doesn't really represent the data well because:
 
 *The value in the middle of the distribution.*
 
-If there are an even number of elements, the median will be the average of the two in the middle.
+(If there are an even number of elements, the median will be the average of the two in the middle.)
+
 
 ### Mean (expected value)
 
 *The weighted average, or expected value.*
 
--   Population mean: $\mu$
--   Sample mean: $\mean{x}$ (can be used to estimate $\mu$)
-
-**Affected by outliers** (an observation point that is distant from other observations).
+- Population mean: $\mu$
+- Sample mean: $\mean{x}$ (can be used to estimate $\mu$)
+- The mean is **affected by outliers**.
 
 ## Variability of data
 
@@ -73,7 +73,9 @@ Problem with Range and IQR: neither takes all data into account.
 
 ### Outlier
 
-*Values below (Q1 - 1.5\*IQR) or above (Q3 + 1.5\*IQR) are considered outliers.*
+*An observation point that is distant from other observations.*
+
+Values below (Q1 - 1.5\*IQR) or above (Q3 + 1.5\*IQR) are considered outliers.
 
 ## Estimators, Bias and Variance
 
