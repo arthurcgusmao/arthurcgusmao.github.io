@@ -98,3 +98,55 @@ print('when you use %%time')
 ```
 
 For more accurate results you may also want to use `timeit` instead of `time`, which Jupyter also allows for. See [this answer](https://stackoverflow.com/questions/17579357/time-time-vs-timeit-timeit) for more details on the difference between the two.
+
+
+## Saving the current notebook from code
+
+It's a bit of a hack, but you can save the current notebook you are running the code from using the following lines:
+
+```python
+from IPython.display import display, Javascript
+display(Javascript('IPython.notebook.save_checkpoint();'))
+```
+
+## Converting a notebook from the command line
+
+The command below will convert the notebook to html. It's possible to define other formats as well (check [the documentation](https://nbconvert.readthedocs.io/en/latest/customizing.html)).
+
+```python
+%%bash
+jupyter nbconvert --to html notebook_name.ipynb
+```
+
+## Exporting history
+
+It's possible to export the history (each command that was issued) of your current notebook by using the `%notebook` magic:
+
+```python
+%notebook history.ipynb
+```
+
+## Running bash commands
+
+To run a bash command, the magic `%%bash` at the first line of a cell will do it for you:
+
+```python
+%%bash
+mv history.ipynb ./results/
+```
+
+It is also possible to use the `subprocess` module to run bash commands from python:
+
+```python
+bash_command = "mv history.ipynb {}/".format(export_path)
+import subprocess
+process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
+output, error = process.communicate()
+```
+
+
+## Other references
+
+Other posts I found helpful that cover jupyter notebook hints:
+
+- [dataquest.io](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/)
