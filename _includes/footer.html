@@ -4,7 +4,7 @@
 
     <!-- <h2 class="footer-heading">{{ site.title | escape }}</h2> -->
 
-    <p>GitHub profile: {% include icon-github.html username=site.github_username %}</p>
+    <p>GitHub profile: <a href="http://github.com/{{ site.github_username }}">{{ site.github_username }}</a></p>
     <p class="rss-subscribe">Subscribe to this blog <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
     <p>&copy; {{ site.time | date: '%Y' }} {{ site.author }}</p>
 

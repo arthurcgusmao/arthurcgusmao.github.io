@@ -11,4 +11,4 @@ order_nav: 1
 
 {{ site.author_about | escape }}
 
-Find some of my projects on GitHub: {% include icon-github.html username=site.github_username %}
+Find some of my projects on GitHub: <a href="http://github.com/{{ site.github_username }}">{{ site.github_username }}</a>
