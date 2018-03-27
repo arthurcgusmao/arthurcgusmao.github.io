@@ -146,3 +146,21 @@ See where a package is installed:
 ```bash
 dpkg -L <packagename>
 ```
+
+
+### Sorting mp3 in a USB stick
+
+Check path to USB stick (search for device name):
+```bash
+lsblk
+```
+
+Unmount:
+```bash
+sudo umount /dev/sdb1
+```
+
+Sort using `fatsort`:
+```bash
+sudo fatsort /dev/sdb1
+```
