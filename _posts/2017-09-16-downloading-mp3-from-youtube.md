@@ -11,7 +11,9 @@ This is a simple tutorial to easily download lots of mp3 audios from YouTube vid
 3. Save and run the python script below.
 
 ```python
-with file('list.txt') as f:
+import subprocess
+
+with open('list.txt') as f:
     list_ = f.read()
     f.close()
 
