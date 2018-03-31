@@ -145,6 +145,26 @@ output, error = process.communicate()
 ```
 
 
+## Remote access to another machine
+
+Start the server <u>on the remote machine</u>:
+```bash
+$ jupyter notebook --no-browser --port=8889
+```
+
+Open an SSH tunnel (port forwarding) <u>from your local machine</u> to the remote one:
+```bash
+$ ssh -N -L localhost:8888:localhost:8889 remote_user@remote_host
+```
+
+You'll then be able to access the remote kernel in your local browser by going to [http://localhost:8888](http://localhost:8888).
+
+
+## Setting up a password
+
+Instead of a token, it's possible to set up a default password that jupyter will use. Follow [these instructions](http://testnb.readthedocs.io/en/stable/examples/Notebook/Configuring%20the%20Notebook%20and%20Server.html#setting-a-password).
+
+
 ## Other references
 
 Other posts I found helpful that cover jupyter notebook hints:
