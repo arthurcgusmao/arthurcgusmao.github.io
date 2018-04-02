@@ -28,7 +28,7 @@ However, this only guarantees that Zotero will be able to find attached files th
 
 ### Setting up ZotFile
 
-Download and install [ZotFile](http://zotfile.com/) like any other Zotero plugin. Then inside Zotero go to `Tools > ZotFile Preferences > General Settings > Location of Files`. Select *Custom Location* and select the same base directory you used in the step above.
+Download and install [ZotFile](http://zotfile.com/) like any other Zotero plugin. Then inside Zotero go to `Tools > ZotFile Preferences > General Settings > Location of Files`. Select *Custom Location* and select the same base directory you used in the step above. Be sure to uncheck the option `Automatically rename attachments files using parent metadata` in Zotero (same location as in *automatic saving of snapshots* --- see *Other configurations* section below), I found that when this was checked ZotFile would not be able to move the file to the desired location.
 
 You can also setup ZotFile to store the attachments into subfolders according to rules that depend on the metadata of the files by changing *"Use subfolder defined by"*. For myself, I set it to `/%T` which corresponds to the item type.
 
@@ -78,3 +78,12 @@ By default Zotero does not list items of sub-collections in the item-list. You c
 ![Set the custom variable `extensions.zotero.recursiveCollections` to true by double clicking over the Value column in the respective line.][img:zotsubcol]
 
 [img:zotsubcol]: /images/posts/zotero_recursivecollections.png
+
+
+### Disable automatic saving of snapshots
+
+One feature that can be annoying is that the Zotero connector for chrome will automatically save a snapshot from sites like arxiv. This can be disabled in `Preferences > General > File Handling`:
+
+![Uncheck the checkbox to disable automatic saving of snapshots.][img:zotdissnap]
+
+[img:zotdissnap]: /images/posts/zotero_disable_snapshots.png
