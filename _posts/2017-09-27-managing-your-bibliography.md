@@ -46,7 +46,7 @@ Since Zotero metadata are saved at the [Zotero Data Directory](https://www.zoter
 
 ## Viewing and annotating your PDFs
 
-Recently I found out that [PDF-XChange Editor](https://www.tracker-software.com/product/pdf-xchange-editor) works gracefully with [Wine](https://en.wikipedia.org/wiki/Wine_(software)). I have tried a lot of PDF editors and viewers for Linux and this one is the best by far. Highly recommended.
+Recently I found out that [PDF-XChange Editor](https://www.tracker-software.com/product/pdf-xchange-editor) works gracefully with [Wine](https://en.wikipedia.org/wiki/Wine_(software)). I have tried a lot of PDF editors and viewers for Linux and this one is the best by far. Highly recommended. From my personal experience, I found that the newest version (7.0.324.3) was somewhat buggy in the 64 bit version, so I installed the 32 bit one and the problems were gone.
 
 <!-- An interesting thing for you to do if you want to default the opening of PDF files to evince but make an exception to open them with PDF-XChange when in a specific directory is [this script](https://gist.github.com/slowkow/8834315):
 ```bash
