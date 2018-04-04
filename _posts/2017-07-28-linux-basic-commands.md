@@ -41,7 +41,7 @@ scp -i key.pem file1 (...) fileN ubuntu@0.0.0.0://home/ubuntu
 
 Using rsync via ssh:
 ```bash
-rsync -avz -e "ssh -p 22000" ~/file.txt user@123.123.123.123:/home/user/
+rsync -avz -e "ssh -p 22000" remote_user@remote_host:/remote/path/ ~/local/path/
 ```
 rsync options:
 
