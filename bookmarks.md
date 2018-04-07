@@ -29,6 +29,7 @@ Random resources I found over the web that may be interesting to check out.
 - [Covariance — Different ways to explain or visualize it](http://stats.seandolinar.com/covariance-different-ways-to-explain/)
 - [Removing Outliers](http://graphpad.com/guides/prism/6/statistics/index.htm?stat_checklist_identifying_outliers.htm)
 - [Game theory explaining trust/distrust](http://ncase.me/trust/)
+- Understanding the ROC Curve: [video](https://www.youtube.com/watch?v=OAl6eAyP-yo) + [interactive website](http://www.navan.name/roc/)
 
 
 ## Programming
