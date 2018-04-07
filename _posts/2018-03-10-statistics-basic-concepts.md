@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Statistics basic concepts"
-category: "Math & Statistics"
+category: "Machine Learning"
 mathjax: true
 header-includes:
     - \usepackage{bm}

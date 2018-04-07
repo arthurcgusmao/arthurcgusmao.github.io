@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Useful Linux commands"
+title:  "Linux Commands Cheatsheet"
 category: Programming
 ---
 
