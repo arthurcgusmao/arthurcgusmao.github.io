@@ -125,7 +125,7 @@ fig, [[ax1, ax2], [ax3, ax4]] = plt.subplots(nrows=2, ncols=2) # shortcut for ge
 
 After getting the axes, you can call the plotting method of your choice for each one.
 
-Notice that these functions do not impose a grid to the figure, however. What they do is to simply create new axes that occupy specific positions on the figure. Because of that, you can create subplots with variable widths and heights in the same figure. Some examples are covered in [this tutorial](https://plot.ly/matplotlib/subplots/).
+Notice that these functions do not impose a grid to the figure, however. What they do is to simply create new axes that occupy specific positions on the figure. Because of that, you can create subplots with varying widths and heights in the same figure. Some examples are covered in [this tutorial](https://plot.ly/matplotlib/subplots/).
 
 If you don't want to be restricted to a grid, check out the [`add_axes`](http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure.add_axes) method. Its differences to the `add_subplot` method are well discussed [here](http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure.add_axes).
 
@@ -149,7 +149,7 @@ Check out the docs for more details:
 ## Specific tips
 
 - The parameter `alpha` is usually the transparency of the curve.
-- `plt.tight_layout()` when your subplots have titles
+- Use `plt.tight_layout()` when your subplots have titles
 
 
 
