@@ -9,13 +9,43 @@ category: Machine Learning
 
 This is what worked best for me, in Ubuntu 16.04.
 
+### Install cuda
 
-1. Install cuda using apt-get ([link here](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#axzz4pToHShYz)).
-2. Install cudnn without using a .deb package ([link here](https://developer.nvidia.com/rdp/cudnn-download), installing the .deb package provided by nvidia never seemed to get the right paths). When you uncompress the .tar file, there will be 2 directories inside the folder: include and lib64. They correspond to the directories with the same name inside /usr/local/cuda where you should move the respective files. That is all that is needed.
-3. Install tensorflow using Anaconda ([instructions here](https://www.tensorflow.org/install/install_linux#InstallingAnaconda)) using [individual whl files](https://github.com/tensorflow/tensorflow/blob/master/README.md).
+Install cuda using apt-get ([link here](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#axzz4pToHShYz)).
 
 
-Testing:
+### Install cudnn
+
+Install cudnn without using a `.deb` package ([link here](https://developer.nvidia.com/rdp/cudnn-download)). For me, using the `.deb` package provided by nvidia never seemed to get the right paths).
+
+After download, uncompress the `.tgz` file:
+```bash
+cd ~/Downloads/
+tar -zxvf cudnn-9.1-linux-x64-v7.1.tgz
+
+# __Output should be:__
+# cuda/include/cudnn.h
+# cuda/NVIDIA_SLA_cuDNN_Support.txt
+# cuda/lib64/libcudnn.so
+# cuda/lib64/libcudnn.so.7
+# cuda/lib64/libcudnn.so.7.1.3
+# cuda/lib64/libcudnn_static.a
+```
+
+Next, there will be 2 directories inside the folder: include and lib64. They correspond to the directories with the same name inside /usr/local/cuda where you should move the respective files. That is all that is needed:
+
+```bash
+sudo mv ~/Downloads/cuda/include/* /usr/local/cuda/include/
+sudo mv ~/Downloads/cuda/lib64/* /usr/local/cuda/lib64/
+```
+
+
+### Install tensorflow
+
+Install tensorflow using Anaconda ([instructions here](https://www.tensorflow.org/install/install_linux#InstallingAnaconda)) using [individual whl files](https://github.com/tensorflow/tensorflow/blob/master/README.md).
+
+
+### Testing TensorFlow
 
 ```python
 import tensorflow as tf
