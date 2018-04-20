@@ -11,14 +11,20 @@ This is what worked best for me, in Ubuntu 16.04.
 
 ### Install cuda
 
-Install cuda using apt-get ([link here](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#axzz4pToHShYz)).
+Install cuda using apt-get ([instructions here](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#axzz4pToHShYz)). You will need to download a `.deb` package containing repository metadata which can be found in [nvidia's developer platform](https://developer.nvidia.com/cuda-downloads), and then proceed following the steps in the documentation.
 
+Don't forget to perform the mandatory post-installation steps. The step for configuring POWER9 is only necessary if you are using a POWER9 system (Power 9 is a high-end server CPU made by IBM).
+
+Obs: if you installed cuda via apt-get, it may be interesting to put it on hold so that it doesn't get updated automatically and end up breaking down your workflow unexpectedly, since tensorflow binaries are specific to a cuda version:
+```bash
+sudo apt-mark hold cuda
+```
 
 ### Install cudnn
 
-Install cudnn without using a `.deb` package ([link here](https://developer.nvidia.com/rdp/cudnn-download)). For me, using the `.deb` package provided by nvidia never seemed to get the right paths).
+Install cudnn *without* using a `.deb` package ([link here](https://developer.nvidia.com/rdp/cudnn-download)). For me, using the `.deb` package provided by nvidia never seemed to get the right paths.
 
-After download, uncompress the `.tgz` file:
+The installation is very simple: after downloaded, uncompress the `.tgz` file:
 ```bash
 cd ~/Downloads/
 tar -zxvf cudnn-9.1-linux-x64-v7.1.tgz
@@ -32,7 +38,7 @@ tar -zxvf cudnn-9.1-linux-x64-v7.1.tgz
 # cuda/lib64/libcudnn_static.a
 ```
 
-Next, there will be 2 directories inside the folder: include and lib64. They correspond to the directories with the same name inside /usr/local/cuda where you should move the respective files. That is all that is needed:
+Next, there will be 2 directories inside the extracted folder: include and lib64. They correspond to the directories with the same name inside /usr/local/cuda where you should move the respective files. That is all that is needed:
 
 ```bash
 sudo mv ~/Downloads/cuda/include/* /usr/local/cuda/include/
@@ -40,9 +46,11 @@ sudo mv ~/Downloads/cuda/lib64/* /usr/local/cuda/lib64/
 ```
 
 
-### Install tensorflow
+### Install TensorFlow
 
-Install tensorflow using Anaconda ([instructions here](https://www.tensorflow.org/install/install_linux#InstallingAnaconda)) using [individual whl files](https://github.com/tensorflow/tensorflow/blob/master/README.md).
+It's possible to install tensorflow using Anaconda ([instructions here](https://www.tensorflow.org/install/install_linux#InstallingAnaconda)) using [individual whl files](https://github.com/tensorflow/tensorflow/blob/master/README.md). Make sure that the wheel (`.whl`) file you are installing was built for the python, cuda and cudnn versions you have installed.
+
+However, if you want maximum performance, you will want to [build it from source](https://www.tensorflow.org/install/install_sources).
 
 
 ### Testing TensorFlow
@@ -60,10 +68,7 @@ with tf.Session() as sess:
 ```
 
 
-Obs: because you installed cuda via apt-get, it may be interesting to put it on hold so that it doesn't get updated automatically and end up breaking down your workflow unexpectedly, since tensorflow binaries are specific to a cuda version:
-```bash
-sudo apt-mark hold cuda-8.0
-```
+
 
 
 ## Variables and Placeholders
