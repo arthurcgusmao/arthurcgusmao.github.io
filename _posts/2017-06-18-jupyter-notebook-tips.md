@@ -135,6 +135,13 @@ To run a bash command, the magic `%%bash` at the first line of a cell will do it
 mv history.ipynb ./results/
 ```
 
+If you want to access a python variable within the script cell, use (see [this answer](https://stackoverflow.com/questions/19579546/can-i-access-python-variables-within-a-bash-or-script-ipython-notebook-c)):
+
+```python
+%%bash -s "$myPythonVar" "$myOtherVar"
+echo "This bash script knows about $1 and $2"
+```
+
 It is also possible to use the `subprocess` module to run bash commands from python:
 
 ```python
