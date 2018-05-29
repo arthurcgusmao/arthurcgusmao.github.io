@@ -87,3 +87,8 @@ One feature that can be annoying is that the Zotero connector for chrome will au
 ![Uncheck the checkbox to disable automatic saving of snapshots.][img:zotdissnap]
 
 [img:zotdissnap]: /images/posts/zotero_disable_snapshots.png
+
+
+### Automate `.bib` file generation
+
+[zotero-better-bibtex](https://github.com/retorquere/zotero-better-bibtex) is a plugin that can automate bibtex exporting, among other utilities. This is crucial for removing the distraction of having to regenerate your `.bib` file every time you add another item to your library.
