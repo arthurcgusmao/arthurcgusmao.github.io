@@ -4,7 +4,7 @@ title:  "Matplotlib intro (pyplot)"
 category: "Programming"
 ---
 
-A very simple introduction to Matplotlib in Python. The motivation for this post is that although I had been using the library for a while, I hadn't really understood the difference between the Figure, the Axes, and its methods, and I couldn't find a reference that would present these concepts simply and clearly.
+A very simple introduction to Matplotlib in Python. The motivation for this post is that, although I had been using the library for a while, I had not really understood the difference between the Figure, the Axes, and its methods, and I could not find a reference that would present these concepts simply and clearly. So here we go.
 
 ```python
 import matplotlib.pyplot as plt
@@ -16,7 +16,7 @@ The most important thing that you have to know is that Matplotlib has two main c
 
 ### Figure
 
-The [`Figure`](https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure) object contains all the plot elements (including the [`Axes`](https://matplotlib.org/api/axes_api.html)). It can be accessed in the following manners:
+The [`Figure`](https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure) object is a major object that contains all of the plot elements (including the [`Axes`](https://matplotlib.org/api/axes_api.html) object, which we will see next). It can be accessed in the following manners:
 
 ```python
 fig = plt.figure() # returns a Figure instance
@@ -24,7 +24,7 @@ fig = plt.figure() # returns a Figure instance
 fig, axs = plt.subplots() # shortcut for getting both figure and axes objects at once
 ```
 
-The last line is a shortcut for getting the current figure and its axes. See [the answers here](https://stackoverflow.com/questions/34162443/why-do-many-examples-use-fig-ax-plt-subplots-in-matplotlib-pyplot-python) for more details.
+The last line is a shortcut for getting the current figure and its axes; see [these answers](https://stackoverflow.com/questions/34162443/why-do-many-examples-use-fig-ax-plt-subplots-in-matplotlib-pyplot-python) for more details.
 
 Configurations such as saving and displaying the figure are set at the figure-level:
 
@@ -49,13 +49,13 @@ fig, axs = plt.subplots() # shortcut for getting both figure and axes at once
 axs = fig.axes # list of axes in `fig`
 ```
 
-Once you have the axis object you want to plot a curve into, the only thing you need to do is to call the plotting method:
+Once you have the axis object that you want to plot a curve into, the only thing you need to do is to call the plotting method:
 
 ```python
 ax.plot(x, y)
 ```
 
-There are many different kinds of plotting methods, here are a few:
+There are many different kinds of plotting methods (which we will not cover), here are a few:
 
 - [`ax.plot`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html) Lines and/or Markers
 - [`ax.bar`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html) Bars chart
