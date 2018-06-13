@@ -4,7 +4,7 @@ title:  "Matplotlib intro (pyplot)"
 category: "Programming"
 ---
 
-A very simple introduction to Matplotlib in Python. The motivation for this post is that, although I had been using the library for a while, I had not really understood the difference between the Figure, the Axes, and its methods, and I could not find a reference that would present these concepts simply and clearly. So here we go.
+A very simple introduction to Matplotlib in Python. It tries to present fundamental concepts without clinging to many details. If you have time I highly recommend you another post which is much more conceptual, detailed and illustrated than mine: ["Artist" in matplotlib](https://dev.to/skotaro/artist-in-matplotlib---something-i-wanted-to-know-before-spending-tremendous-hours-on-googling-how-tos--31oo).
 
 ```python
 import matplotlib.pyplot as plt
@@ -20,8 +20,6 @@ The [`Figure`](https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#
 
 ```python
 fig = plt.figure() # returns a Figure instance
-# or
-fig, axs = plt.subplots() # shortcut for getting both figure and axes objects at once
 ```
 
 The last line is a shortcut for getting the current figure and its axes; see [these answers](https://stackoverflow.com/questions/34162443/why-do-many-examples-use-fig-ax-plt-subplots-in-matplotlib-pyplot-python) for more details.
@@ -41,9 +39,7 @@ fig.show() # displays figure
 
 ```python
 # create new axes
-ax = fig.subplots() # add a set of subplots to this figure (default 1)
-# or
-fig, axs = plt.subplots() # shortcut for getting both figure and axes at once
+ax1 = fig.subplots() # add a set of subplots to this figure (default 1)
 
 # get existing axes
 axs = fig.axes # list of axes in `fig`
@@ -52,7 +48,7 @@ axs = fig.axes # list of axes in `fig`
 Once you have the axis object that you want to plot a curve into, the only thing you need to do is to call the plotting method:
 
 ```python
-ax.plot(x, y)
+ax1.plot(x, y)
 ```
 
 There are many different kinds of plotting methods (which we will not cover), here are a few:
@@ -63,16 +59,21 @@ There are many different kinds of plotting methods (which we will not cover), he
 - [`plt.scatter`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html) Scatter (has capability to render a different size and/or color for each point, in contrast to plot)
 
 
-### Pyplot Shortcuts
+### Shortcuts: the Pyplot interface
 
 To make things easier, Matplotlib has shortcuts for the methods mentioned above directly through `pyplot`. That is, lots of methods can be called from `pyplot`, regardless of whether they would normally be called from a Figure or an Axis object:
 
 ```python
 import matplotlib.pyplot as plt
-# shortcuts
+
+# Example 1
 plt.plot([1,2,3])
 plt.savefig('filepath.png')
 plt.show()
+
+# Example 2
+fig, ax1 = plt.subplots() # get figure and 1 axes (already added to fig)
+...
 ```
 
 
