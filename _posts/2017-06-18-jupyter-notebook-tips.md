@@ -172,6 +172,15 @@ You'll then be able to access the remote kernel in your local browser by going t
 Instead of a token, it's possible to set up a default password that jupyter will use. Follow [these instructions](http://testnb.readthedocs.io/en/stable/examples/Notebook/Configuring%20the%20Notebook%20and%20Server.html#setting-a-password).
 
 
+## Module autoreload
+
+These configurations will auto-reload modules (changes in the source code will not require manual reloading---see [stackoverflow](http://stackoverflow.com/questions/1907993/autoreload-of-modules-in-ipython)):
+
+```python
+%load_ext autoreload
+%autoreload 2
+```
+
 ## Other references
 
 Other posts I found helpful that cover jupyter notebook hints:
