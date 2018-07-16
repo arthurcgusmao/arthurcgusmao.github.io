@@ -11,6 +11,7 @@ Random resources I found over the web that may be interesting to check out.
 
 ## AI, Machine Learning
 
+- [A visual introduction to machine learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
 - [Visualizing K-Means Clustering](https://www.naftaliharris.com/blog/visualizing-k-means-clustering/)
 - [Q-Learning convergence proof](http://www.gatsby.ucl.ac.uk/~dayan/papers/cjch.pdf)
 - [Reinforcement Learning: A Survey](http://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a.pdf)
