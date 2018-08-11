@@ -50,6 +50,7 @@ The mode doesn't really represent the data well because:
 
 (If there are an even number of elements, the median will be the average of the two in the middle.)
 
+The median is more robust to outliers than the mean. It is therefore the best measure of central tendency when dealing with highly skewed distributions.
 
 ### Mean (expected value)
 
@@ -59,15 +60,23 @@ The mode doesn't really represent the data well because:
 - Sample mean: $\mean{x}$ (can be used to estimate $\mu$)
 - The mean is **affected by outliers**.
 
+
+![][img:skewed]
+
+[img:skewed]: /images/posts/mode-median-mean-skewed.png
+
+
 ## Variability of data
 
 ### Range
 
-*MaxValue - MinValue*
+*Range = MaxValue - MinValue*
 
 ### Interquartile Range (IQR)
 
-*Q3 - Q1 (the distance between the 25% and the 75% higher measure)*
+IQR is the distance between the 25% and the 75% higher measure of the data.
+
+*IQR = Q3 - Q1*
 
 Problem with Range and IQR: neither takes all data into account.
 
@@ -75,7 +84,14 @@ Problem with Range and IQR: neither takes all data into account.
 
 *An observation point that is distant from other observations.*
 
-Values below (Q1 - 1.5\*IQR) or above (Q3 + 1.5\*IQR) are considered outliers.
+Values below (Q1 - 1.5\*IQR) or above (Q3 + 1.5\*IQR) are usually considered outliers.
+
+![][img:outlier-boxplot]
+Outliers are represented as dots in a boxplot.
+
+[img:outlier-boxplot]: /images/posts/outlier-boxplot.png
+
+
 
 ## Estimators, Bias and Variance
 
@@ -121,7 +137,9 @@ $$
 \sigma \approx s = \sqrt{\sum_{i=1}^{n} \frac{(x_i - \mean{x})^2}{n - 1}}
 $$
 
-This method corrects the bias in the estimation of the population variance. It also partially corrects the bias in the estimation of the population standard deviation. However, the correction often increases the mean squared error in these estimations.
+Using the *sample standard deviation* (s) corrects the bias in the estimation of the population variance. It also partially corrects the bias in the estimation of the population standard deviation. However, the correction often increases the mean squared error in these estimations.
+
+[This short video](https://www.youtube.com/watch?v=1HmiArFN-EI) tries to bring a bit more intuition on why to use $(n - 1)$ instead of $(n)$.
 
 ### Standard Error of the Mean (SEM)
 
