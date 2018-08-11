@@ -111,7 +111,7 @@ $$
 \sigma^2 = \sum_{i=1}^{n} \frac{(x_i - \mean{x})^2}{n}
 $$
 
-The **standard deviation** is simply the root square of the variance. One interesting characteristic of the standard deviation is the [68–95–99.7 rule](https://en.wikipedia.org/wiki/68%25E2%2580%259395%25E2%2580%259399.7_rule).
+The **standard deviation** is simply the root square of the variance. One interesting characteristic of the standard deviation is the [68–95–99.7 rule](https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule).
 
 #### Bessel's Correction (unbiased estimator of the population variance)
 
