@@ -8,19 +8,23 @@ header-includes:
 ---
 
 
-This article aims at discussing some of the basics of gradient descent and backpropagation in artificial neural networks. For newcomers, viewing these concepts from many different perspectives may be a faster way of learning. It's supposed that the reader is already familiar with calculus, linear algebra and basic terminology of artificial neural networks.
+This article aims at discussing some of the basics of gradient descent and backpropagation in artificial neural networks (NNs). For newcomers, viewing these concepts from many different perspectives may be a faster way of learning. It's supposed that the reader is already familiar with calculus, linear algebra and basic terminology of NNs.
 
 
 ## Neural networks
 
-- (a very brief intro should be here)
+Neural networks are a class of *machine learning* models, inspired by how biological neural networks work, that consist of several artificial neurons arranged in specific architectures. Each artificial neuron loosely models a biological neuron in the sense that it is connected to several other neurons and yields an output as a function of its inputs and parameters. By changing either a NN's architecture or its parameters, one is able to modify how the network respond to different inputs, being able to develop networks that better model phenomenons in the real world. Usually, one makes use of optimization algorithms to improve the parameters (also known as weights) of a NN with respect to a set of observations (data points) from the real world, which we call *learning* the weights of a NN.
+
+Learning requires that we find a way to optimize the model weights so that the output gets as close as possible to the ground truth values. In order to do so, we define a *loss (or error) function*, a function that penalizes outputs that differ from the correct values by assigning a higher value to them, and work towards minimizing the results of this loss function by updating the neural network's weights. The most efficient manner of doing so is to have a loss function that is differentiable so that we can employ *gradient descent*, an optimization method to (locally) minimize a function. Gradient descent works by calculating the gradient of a function (the gradient points in the direction of the greatest increase rate of the function) at a given point and changing the function's parameters (in our case, the neural network's weights) in the opposite direction.
+
+In this post, we go through the details of what gradient descent is and how it can be applied in NNs in order to make learning feasible. We do not go through the details of NN architectures or artificial neurons here.
 
 
 ## Gradient descent
 
 ### What is gradient descent?
 
-**Gradient descent** is an optimization algorithm that moves towards a *local minimum* of a function. Intuitively, at each iteraton the algorithm will take a step in the direction that shows the fastest decrease rate of the function, thus minimizing it locally.
+**Gradient descent** is an optimization algorithm that moves us towards a *local minimum* of a function. Intuitively, at each iteraton the algorithm will take a step in the direction that shows the fastest decrease rate of the function, thus minimizing it locally.
 
 ![Path that gradient descent would go through for two different starting points][img:gd]
 
@@ -28,7 +32,7 @@ This article aims at discussing some of the basics of gradient descent and backp
 
 #### Univariate case
 
-We want to minimize a function $y = f(x)$. Gradient descent uses the derivative of the function ($\frac{d f(x)}{dx}$ , which gives us the slope) as a guide so that it knows how a small change $\epsilon$ in $x$ will affect the output $y$:
+Say we want to minimize a function $y = f(x)$. Gradient descent uses the derivative of the function ($\frac{d f(x)}{dx}$ , which gives us the slope) as a guide so that it knows how a small change $\epsilon$ in $x$ will affect the output $y$:
 
 $$
     f(x + \epsilon) \approx f(x) + \epsilon\ f'(x)
@@ -55,14 +59,19 @@ where $\epsilon > 0$ is the *learning rate*, a scalar that determines the size o
 going to take in the opposite direction of the gradient of the function to get to the (local)
 minimum.
 
-In ANNs, the function we're usually trying to minimize is an error (or loss) function, and we can use gradient descent for that. However, how do we do that when our network has more than one layer? How do we propagate the error backwards from the final layers to the initial ones?
+In NNs, the function we're usually trying to minimize is an error (or loss) function, and we can use gradient descent for that. However, how do we do that when our network has more than one layer? How do we propagate the error backwards from the final layers to the initial ones?
+
+### Gradient descent in neural networks
+
+
+
 
 
 ## Backpropagation
 
-Backpropagation is a short expression for "backward propagation of errors". An intuitive idea on how it works: it propagates the output errors of the network backwards, associating a relative value of the error for each unit of the hidden layer. This relative value is then used to update the weights of that unit. The process is repeated for each hidden layer.
+Backpropagation is a short expression for "backward propagation of errors". Intuitively, it propagates the output errors of the network backwards, associating a relative value of the error for each unit of the hidden layer. This relative value is then used to update the weights of that unit. The process is repeated for each hidden layer.
 
-More formally, backpropagation attemps to minimize an error function
+More formally, backpropagation attemps to minimize an error function such as
 
 $$
     E = \frac{1}{2}(y - \hat{y})^2
