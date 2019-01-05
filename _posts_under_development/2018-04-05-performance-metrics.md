@@ -247,7 +247,7 @@ In contrast to this generality, we can define more specific metrics using condit
 
 https://arxiv.org/pdf/1503.06410.pdf
 
-In order to better assess the model's performance in datasets with imbalanced classes and where we are more interested in the positive rather than in the negative class, we must move away from accuracy and into metrics from sections 2 and 3 mentioned above. In fact, when we have big class imbalances accuracy should NEVER be considered a reliable metric, since it will be very insensitive to changes in how the algorithm classifies the minority classes.
+In order to better assess the model's performance in datasets with imbalanced classes and where we are more interested in the positive rather than in the negative class, we must move away from accuracy and into metrics from sections 2 and 3 mentioned above. In fact, when we have large class imbalances, accuracy should *never* be considered a reliable metric, since it will be very insensitive to changes in how the algorithm classifies the minority classes.
 
 To illustrate this point, consider the case where the positive examples compose only 1% of our dataset.
 
