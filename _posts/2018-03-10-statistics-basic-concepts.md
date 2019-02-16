@@ -65,6 +65,8 @@ The median is more robust to outliers than the mean. It is therefore the best me
 
 [img:skewed]: /images/posts/mode-median-mean-skewed.png
 
+The mean is always pulled towards the longest tail of the distribution, in relation to the median.
+
 
 ## Variability of data
 
