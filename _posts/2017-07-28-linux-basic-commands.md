@@ -6,6 +6,18 @@ category: Programming
 
 <!-- # Useful linux commands -->
 
+### Read the docs!
+
+Maybe one of the most underused tools in the command-line is the documentation of the commands themselves. You can easily open the docs for the vast majority of the commands you will need simply by running `man <command>`. Then search for what you are interested in by typing `/`.
+
+#### Alternatives to `man`
+
+While **man*** is the default command to show docs, the community has developed alternatives with simpler output:
+
+- **tldr** (`npm install -g tldr`) (personally I find it the best option);
+- **bropages** (`gem install bropages`);
+- **cheat** (`pip install cheat`).
+
 ### Compress files (e.g. making a backup)
 ```bash
 tar -zcvf archive-name.tar.gz directory-name
@@ -52,7 +64,7 @@ rsync options:
 
 See [this blog post](https://www.tecmint.com/rsync-local-remote-file-synchronization-commands/) for a great depiction of many other different ways to use rsync.
 
-### Search for files
+### Find (Search for files)
 
 ```bash
 find $directory -name '*.json'
@@ -60,7 +72,7 @@ find $directory -name '*.json'
 The command above will search for all files that have the extesion 'json' in the directory specified (including subdirectories).
 
 
-### Search for strings in many files
+### Grep (Search for strings in many files)
 ```bash
 grep -rn "string"
 ```
@@ -70,7 +82,17 @@ Options:
 - n: Show line Number
 
 
-### Space usage
+### Symbolic links
+```bash
+ln -s <original-file-path> <simlink-path>
+```
+
+Options:
+
+- s: Creates symbolic link instead of hard link.
+
+
+### Disk Usage (`du`)
 ```bash
 du -sh [file_path]
 ```
