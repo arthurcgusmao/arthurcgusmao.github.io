@@ -12,7 +12,7 @@ Maybe one of the most underused tools in the command-line is the documentation o
 
 #### Alternatives to `man`
 
-While **man*** is the default command to show docs, the community has developed alternatives with simpler output:
+While **man** is the default command to show docs, the community has developed alternatives with simpler output:
 
 - **tldr** (`npm install -g tldr`) (personally I find it the best option);
 - **bropages** (`gem install bropages`);
