@@ -186,16 +186,3 @@ Sort using `fatsort`:
 ```bash
 sudo fatsort /dev/sdb1
 ```
-
-
-### Prevent SSH connection to break
-
-Add to your `~/.ssh/config` (create if it doesn't exist) the following:
-
-```
-Host *
-    ServerAliveInterval 60
-    ServerAliveCountMax 2
-```
-
-For more details see [1](https://patrickmn.com/aside/how-to-keep-alive-ssh-sessions/), [2](https://unix.stackexchange.com/questions/3026/what-options-serveraliveinterval-and-clientaliveinterval-in-sshd-config-exac).
