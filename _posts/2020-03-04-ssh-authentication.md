@@ -76,6 +76,11 @@ Host *
 For more details see references [6] and [7].
 
 
+## Further notes
+
+If you are using a web services provider, be aware that it may employ meta-mechanisms to control SSH authentication in the remote machine. For instance, Google Compute actively modifies/deletes the `~/.ssh/authorized_keys` file of virtual machines for that purpose; changes you make to that file may be lost over time.
+
+
 ## References
 
 1. https://en.wikipedia.org/wiki/Secure_Shell
