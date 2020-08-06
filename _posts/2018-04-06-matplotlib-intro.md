@@ -126,9 +126,17 @@ fig, [[ax1, ax2], [ax3, ax4]] = plt.subplots(nrows=2, ncols=2) # shortcut for ge
 
 After getting the axes, you can call the plotting method of your choice for each one.
 
-Notice that these functions do not impose a grid to the figure, however. What they do is to simply create new axes that occupy specific positions on the figure. Because of that, you can create subplots with varying widths and heights in the same figure. Some examples are covered in [this tutorial](https://plot.ly/matplotlib/subplots/).
+#### Breaking out of the grid
 
-If you don't want to be restricted to a grid, check out the [`add_axes`](http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure.add_axes) method. Its differences to the `add_subplot` method are well discussed [here](http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure.add_axes).
+In addition, these functions do not impose a fixed grid, they simply create new axes that occupy specific positions. Because of that, you can create subplots with varying widths and heights in the same figure.
+<!-- Some examples are covered in [this tutorial](https://plot.ly/matplotlib/subplots/). -->
+
+An option for a very flexible plotting scheme is the following: specify a starting position `(x0,y0)` and the size of your new axis `(width,height)` by passing the quadruple `(x0,y0,width,height)` to [`add_subplot`](https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure.add_subplot) via the `position` keyword argument:
+```python
+ax1 = fig.add_subplot(position=(x0,y0,width,height))
+```
+
+Alternatively, you can use the [`add_axes`](https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure.add_axes) method, whose calling signature is the same quadruple. Its differences to `add_subplot` method are well discussed [here](https://stackoverflow.com/a/43330553/5103881).
 
 
 ## Decoration
