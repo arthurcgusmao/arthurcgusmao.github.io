@@ -152,8 +152,21 @@ Check out the docs for more details:
 - The parameter `alpha` is usually the transparency of the curve.
 - Use `plt.tight_layout()` when your subplots have titles
 
+#### Varying colors w/ custom colormap
+Say you want to plot a set of lines with their colors varying according to some criteria.
+Matplotlib define a set of [colormaps](https://matplotlib.org/3.3.0/tutorials/colors/colormaps.html) via `matplotlib.cm`, that returns a color from the colormap given your input (which can be in the range [0,1] or [0, 255]):
+```python
+import matplotlib.pyplot as plt
+from matplotlib import cm
 
+ys = ([1,2,3], [2,3,4], [3,4,5], [4,5,6])
 
+for i,y in enumerate(ys):
+    plt.plot(y, color=cm.summer(i/len(ys)))
+```
+![Varying colors with colormap][img:varying_colors]
+
+[img:varying_colors]: /images/posts/matplotlib/varying_colors_with_colormap.png
 
 ## Other resources
 
