@@ -141,7 +141,11 @@ $$
 
 Using the *sample standard deviation* (s) corrects the bias in the estimation of the population variance. It also partially corrects the bias in the estimation of the population standard deviation. However, the correction often increases the mean squared error in these estimations.
 
-[This short video](https://www.youtube.com/watch?v=1HmiArFN-EI) tries to bring a bit more intuition on why to use $(n - 1)$ instead of $(n)$.
+These [[1](https://www.youtube.com/watch?v=1HmiArFN-EI), [2](https://www.youtube.com/watch?v=9ONRMymR2Eg)] short videos try to bring some intuition on why to use $(n - 1)$ instead of $(n)$.
+
+The problem is that, by using the estimate $(\mean{x})$ instead of the actual population mean $(\mu)$, we create bias in the estimated variance by underestimating it, because $(\mean{x})$ is the value that minimizes $\sum_{i=1}(x_i - \mean{x})^2$, whereas $\mu$ could be any other value that makes it larger.
+
+Using $n-1$ in $s^2$ to estimate $\sigma^2$ fixes this bias, making $s^2$, on average, equals $\sigma^2$ (unbiased estimator).
 
 ### Standard Error of the Mean (SEM)
 
