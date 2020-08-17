@@ -147,6 +147,13 @@ The problem is that, by using the estimate $(\mean{x})$ instead of the actual po
 
 Using $n-1$ in $s^2$ to estimate $\sigma^2$ fixes this bias, making $s^2$, on average, equals $\sigma^2$ (unbiased estimator).
 
+#### Z-Score
+The Z-Score, aka standard score, maps a sample $x_i$ to how many standard deviations $\sigma$ it is from from the mean $\mu$:
+
+$$
+z_i = \frac{x_i - \mu}{\sigma}
+$$
+
 ### Standard Error of the Mean (SEM)
 
 The SEM quantifies the precision of the mean, it is a measure of how far your sample mean is likely to be from the true mean of the population. But how to calculate it without doing lots of experiments and finding many different values for the mean? We can use the estimation:
@@ -182,3 +189,21 @@ $$
 $$
 
 The relationship between bias and variance is tightly linked to the machine learning concepts of capacity, underfitting and overfitting.
+
+
+## Important concepts
+
+### Statistical hypothesis testing
+
+The [null hypothesis](https://en.wikipedia.org/wiki/Null_hypothesis) $H_0$ is a default position that there is no relationship between two measured phenomena or no association among groups [Wikipedia]. It is usually contrasted with an [alternative hypothesis](https://en.wikipedia.org/wiki/Alternative_hypothesis) $H_1$, a new theory.
+
+These statistical hypothesis are usually formulated in terms of a [test statistic](https://en.wikipedia.org/wiki/Test_statistic), a one-value numerical summary of a dataset, defined in a way that distinctions between the two hypotheses can be made.
+
+The test statistic must be such that its [sampling distribution](https://en.wikipedia.org/wiki/Sampling_distribution), and, consequently, [p-values](https://en.wikipedia.org/wiki/P-value), can be calculated.
+
+
+### i.i.d.
+[Independent and identically distributed](https://stats.stackexchange.com/questions/89154/general-method-for-deriving-the-standard-error) random variables refers to a collection of random variables that are mutually independent from each other and sampled from the same probability distribution.
+
+### Central limit theorem
+The [central limit theorem](central limit theorem) states that, when i.i.d. random variables are summed, the resulting distribution tends toward a normal distribution, as the number of samples grow, even if the original variables themselves are not normally distributed.
