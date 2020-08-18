@@ -193,13 +193,18 @@ The relationship between bias and variance is tightly linked to the machine lear
 
 ## Important concepts
 
+### Sampling distribution
+The [sampling distribution](https://en.wikipedia.org/wiki/Sampling_distribution) is the probability distribution of the values a statistic (e.g., sample mean or sample variance) can take on.
+
 ### Statistical hypothesis testing
 
 The [null hypothesis](https://en.wikipedia.org/wiki/Null_hypothesis) $H_0$ is a default position that there is no relationship between two measured phenomena or no association among groups [Wikipedia]. It is usually contrasted with an [alternative hypothesis](https://en.wikipedia.org/wiki/Alternative_hypothesis) $H_1$, a new theory.
 
 These statistical hypothesis are usually formulated in terms of a [test statistic](https://en.wikipedia.org/wiki/Test_statistic), a one-value numerical summary of a dataset, defined in a way that distinctions between the two hypotheses can be made.
 
-The test statistic must be such that its [sampling distribution](https://en.wikipedia.org/wiki/Sampling_distribution), and, consequently, [p-values](https://en.wikipedia.org/wiki/P-value), can be calculated.
+The test statistic must be such that its sampling distribution, and, consequently, [p-values](https://en.wikipedia.org/wiki/P-value), can be calculated.
+
+<!-- Z-test is any statistical  -->
 
 
 ### i.i.d.
