@@ -11,6 +11,7 @@ This is my personal cheatsheet for statistics. It is far from being a complete i
 $$
     \def\mean#1{\bar #1}
     \DeclareMathOperator{\EV}{\mathbb{E}}
+    \DeclareMathOperator{\Prob}{\mathbb{P}}
 $$
 
 
@@ -151,7 +152,7 @@ Using $n-1$ in $s^2$ to estimate $\sigma^2$ fixes this bias, making $s^2$, on av
 The Z-Score, aka standard score, maps a sample $x_i$ to how many standard deviations $\sigma$ it is from from the mean $\mu$:
 
 $$
-z_i = \frac{x_i - \mu}{\sigma}
+z_i = \frac{x_i - \mu}{\sigma} \ \ \ \implies \ \ \ x_i = \mu + z_i \cdot \sigma
 $$
 
 ### Standard Error of the Mean (SEM)
@@ -202,13 +203,32 @@ The [null hypothesis](https://en.wikipedia.org/wiki/Null_hypothesis) $H_0$ is a 
 
 These statistical hypothesis are usually formulated in terms of a [test statistic](https://en.wikipedia.org/wiki/Test_statistic), a one-value numerical summary of a dataset, defined in a way that distinctions between the two hypotheses can be made.
 
-The test statistic must be such that its sampling distribution, and, consequently, [p-values](https://en.wikipedia.org/wiki/P-value), can be calculated.
+The test statistic must be such that its sampling distribution, and, consequently, p-values, can be calculated.
 
 <!-- Z-test is any statistical  -->
 
+### p-value
+[*p-value*](https://en.wikipedia.org/wiki/P-value) refers to the probability of obtaining test results equals to or more extreme than the actual observations, under the assumptions that the null hypothesis $H_0$ is correct.
+
+The smaller the p-value, the less likely $H_0$ holds, and the higher the statistical significance is said to be.
+
+- $\text{p-value} = \Prob\(T \ge t \mid H_0\)$ for one-sided, right tail test.
+- $\text{p-value} = \Prob\(T \le t \mid H_0\)$ for one-sided, left tail test.
+<!-- $\text{p-value} = \Prob{T \le t \mid H_0}$ for one-sided, right tail test. -->
+
+@todo: write details from https://en.wikipedia.org/wiki/One-_and_two-tailed_tests
 
 ### i.i.d.
-[Independent and identically distributed](https://stats.stackexchange.com/questions/89154/general-method-for-deriving-the-standard-error) random variables refers to a collection of random variables that are mutually independent from each other and sampled from the same probability distribution.
+[Independent and identically distributed](https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables) random variables refers to a collection of random variables that are mutually independent from each other and sampled from the same probability distribution.
 
 ### Central limit theorem
-The [central limit theorem](central limit theorem) states that, when i.i.d. random variables are summed, the resulting distribution tends toward a normal distribution, as the number of samples grow, even if the original variables themselves are not normally distributed.
+The [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) states that, when i.i.d. random variables are summed, the resulting distribution tends toward a normal distribution, as the number of samples grow, even if the original variables themselves are not normally distributed.
+
+
+
+### Continuity correction
+[Continuity correction](https://en.wikipedia.org/wiki/Continuity_correction) are used when approximating a discrete random variable with a continuous one [[ref](https://www.youtube.com/watch?v=kOcrXXSluTc)].
+
+![][img:binom-dist]
+
+[img:binom-dist]: /images/posts/binomial-distribution.png
