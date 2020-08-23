@@ -7,7 +7,7 @@ header-includes:
     - \usepackage{bm}
     - \newcommand*\mean[1]{\bar{#1}}
 ---
-This is my personal cheatsheet for statistics. It is far from being a complete introduction.
+This is my personal cheatsheet and tutorial for statistics. It is far from being a complete introduction, the main goal is to have a centralized resource where one can quickly remember or access more detailed resources. Many paragraphs are excerpts from the linked Wikipedia articles in the associated section.
 $$
     \def\mean#1{\bar #1}
     \DeclareMathOperator{\EV}{\mathbb{E}}
@@ -15,7 +15,7 @@ $$
 $$
 
 
-## Intro to Research Methods
+## Concepts of Research Methods
 
 ### Construcs
 
@@ -25,13 +25,22 @@ Something hard to measure, that you'll have to define how to measure.
 
 It's how you will measure a given construct.
 
-### Parameters vs Statistics
+### Sample
+A [**sample**](https://en.wikipedia.org/wiki/Sample_(statistics)) is a (sub)set of elements from a population of interest.
 
-**Parameters** refer to the whole population. **Statistics** refer to the sample (part of the population).
+When it is not feasible to directly measure the value of a population parameter (e.g., unmanageable population size), we can infer its likely value using a sample (a subset of manageable size).
+
+*Note:* make sure to distinguish between the terms *sample size* and *number of samples*. Use the former to describe the number of elements in a sample, and the latter to refer to the number of different samples (each constituted of many elements), if that is the case.
+
+### Parameter vs Statistic
+
+A [**parameter**](https://en.wikipedia.org/wiki/Statistical_parameter) refers to a quantity the defines the actual, entire population (the original distribution) of interest. In contrast, a [**statistic**](https://en.wikipedia.org/wiki/Statistic) refers to a quantity computed using values in a sample (part of the population).
+
+A statistic can be used to estimate a population parameter, to describe a sample, or to evaluate a hypothesis. When used to estimate a population parameter, it is called an *estimator*.
 
 ### Relationships vs Causation
 
-**Relationships** can be shown by observational studies (eg. by seeing a point distribution). **Causation**, however, has to be found through controlled experiments.
+**Relationships** can be shown by observational studies (eg. by seeing a point distribution). **Causation**, however, has to be found through *controlled* experiments.
 
 ## Measures of central tendency
 
@@ -149,33 +158,13 @@ The problem is that, by using the estimate $(\mean{x})$ instead of the actual po
 Using $n-1$ in $s^2$ to estimate $\sigma^2$ fixes this bias, making $s^2$, on average, equals $\sigma^2$ (unbiased estimator).
 
 #### Z-Score
-The Z-Score, aka standard score, maps a sample $x_i$ to how many standard deviations $\sigma$ it is from from the mean $\mu$:
+The [Z-Score](https://en.wikipedia.org/wiki/Standard_score) (aka standard score) maps a sample $x_i$ to how many standard deviations $\sigma$ it is from the mean $\mu$:
 
 $$
 z_i = \frac{x_i - \mu}{\sigma} \ \ \ \implies \ \ \ x_i = \mu + z_i \cdot \sigma
 $$
 
-### Standard Error of the Mean (SEM)
-
-The SEM quantifies the precision of the mean, it is a measure of how far your sample mean is likely to be from the true mean of the population. But how to calculate it without doing lots of experiments and finding many different values for the mean? We can use the estimation:
-
-$$
-\text{SEM} = \frac{\sigma}{\sqrt{n}}
-$$
-
-Proof of the formula below ([from
-here](https://stats.stackexchange.com/questions/89154/general-method-for-deriving-the-standard-error)), the first step is allowed because the $X_i$ are independently sampled, so the variance of the sum is just the sum of the variances.
-
-$$
-\text{Var}\bigg(\frac{\sum_{i=1}^{n}{X_i}}{n}\bigg) = \frac{1}{n^2}\text{Var}\bigg(\sum_{i=1}^{n}{X_i}\bigg) = \frac{1}{n^2}\sum_{i=1}^{n}\text{Var}\bigg({X_i}\bigg) = \frac{1}{n^2}\sum_{i=1}^{n}{\sigma^2} = \frac{\sigma^2}{n}
-$$
-
-We can use the SEM to interpret different populations and see if there is evidence that they are differences or similarities between them:
-
-![][img:sem]
-*How the standard error of the mean helps us interpret populations, from [this YouTube video](https://www.youtube.com/watch?v=3UPYpOLeRJg).*
-
-[img:sem]: /images/posts/interpreting_SEM.png
+By its definition, the z-score is a *dimensionless* quantity.
 
 
 ### The Bias vs Variance Tradeoff
@@ -192,12 +181,42 @@ $$
 The relationship between bias and variance is tightly linked to the machine learning concepts of capacity, underfitting and overfitting.
 
 
-## Important concepts
 
-### Sampling distribution
+## Sampling distributions
+
 The [sampling distribution](https://en.wikipedia.org/wiki/Sampling_distribution) is the probability distribution of the values a statistic (e.g., sample mean or sample variance) can take on.
 
-### Statistical hypothesis testing
+### Standard Error
+
+The [**standard error**](https://en.wikipedia.org/wiki/Standard_error) of a statistic corresponds to the standard deviation of its sampling distribution. If the parameter or the statistic is the mean, it is called the standard error of the mean (SEM).
+
+### Standard Error of the Mean (SEM) $\sigma_{\bar{x}}$
+
+The SEM quantifies the precision of the mean, i.e., it measures how far the sample mean is likely to be from the true population mean. Since $\sigma$ is seldom known (to calculate it we'd have to make lots of experiments, finding many different values for the mean, and calculating its standard deviation), the SEM is usually estimated by using the sample standard deviation:
+
+$$
+\text{SEM} = \sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}} \approx \frac{s}{\sqrt{n}}
+$$
+
+The proof of the relationship between the SEM, the standard deviation of the population $\sigma$, and the sample size $n$ is shown below ([reference](https://stats.stackexchange.com/questions/89154/general-method-for-deriving-the-standard-error)). The first step is allowed because the $X_i$ are independently sampled, so the variance of the sum is just the sum of the variances.
+
+$$
+\text{Var}\bigg(\frac{\sum_{i=1}^{n}{X_i}}{n}\bigg) = \frac{1}{n^2}\text{Var}\bigg(\sum_{i=1}^{n}{X_i}\bigg) = \frac{1}{n^2}\sum_{i=1}^{n}\text{Var}\bigg({X_i}\bigg) = \frac{1}{n^2}\sum_{i=1}^{n}{\sigma^2} = \frac{\sigma^2}{n}
+$$
+
+We can use the SEM to interpret different populations and see if there is evidence that there are differences or similarities between them:
+
+![][img:sem]
+*How the standard error of the mean helps us interpret populations, from [this YouTube video](https://www.youtube.com/watch?v=3UPYpOLeRJg).*
+
+[img:sem]: /images/posts/interpreting_SEM.png
+
+Link: [simulation applet](http://onlinestatbook.com/stat_sim/sampling_dist/index.html) to explore aspects of sampling distributions.
+
+
+## Statistical hypothesis testing
+
+### Null and alternative hypothesis
 
 The [null hypothesis](https://en.wikipedia.org/wiki/Null_hypothesis) $H_0$ is a default position that there is no relationship between two measured phenomena or no association among groups [Wikipedia]. It is usually contrasted with an [alternative hypothesis](https://en.wikipedia.org/wiki/Alternative_hypothesis) $H_1$, a new theory.
 
@@ -218,13 +237,14 @@ The smaller the p-value, the less likely $H_0$ holds, and the higher the statist
 
 @todo: write details from https://en.wikipedia.org/wiki/One-_and_two-tailed_tests
 
+
+## Other concepts
+
 ### i.i.d.
 [Independent and identically distributed](https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables) random variables refers to a collection of random variables that are mutually independent from each other and sampled from the same probability distribution.
 
 ### Central limit theorem
-The [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) states that, when i.i.d. random variables are summed, the resulting distribution tends toward a normal distribution, as the number of samples grow, even if the original variables themselves are not normally distributed.
-
-
+The [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) states that, when i.i.d. random variables are summed, the resulting distribution tends toward a normal distribution, as the sample size grow, even if the original variables themselves are not normally distributed.
 
 ### Continuity correction
 [Continuity correction](https://en.wikipedia.org/wiki/Continuity_correction) are used when approximating a discrete random variable with a continuous one [[ref](https://www.youtube.com/watch?v=kOcrXXSluTc)].
@@ -232,3 +252,9 @@ The [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem)
 ![][img:binom-dist]
 
 [img:binom-dist]: /images/posts/binomial-distribution.png
+
+
+## References
+
+1. Wikipedia
+2. [Udacity course on Statistics](https://www.udacity.com/course/statistics--st095)
