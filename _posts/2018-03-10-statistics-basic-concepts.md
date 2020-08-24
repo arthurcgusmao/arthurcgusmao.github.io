@@ -192,7 +192,9 @@ The [**standard error**](https://en.wikipedia.org/wiki/Standard_error) of a stat
 
 ### Standard Error of the Mean (SEM) $\sigma_{\bar{x}}$
 
-The SEM quantifies the precision of the mean, i.e., it measures how far the sample mean is likely to be from the true population mean. Since $\sigma$ is seldom known (to calculate it we'd have to make lots of experiments, finding many different values for the mean, and calculating its standard deviation), the SEM is usually estimated by using the sample standard deviation:
+The SEM quantifies the precision of the mean, i.e., it measures how far the sample mean is likely to be from the true population mean. In other words, the SEM is the standard deviation of the distribution that defines the values of the sample mean we will observe, for each sample of size $n$ we take from the population.
+
+Since $\sigma$ is seldom known (to calculate it we'd have to make lots of experiments, finding many different values for the mean, and calculating its standard deviation), the SEM is usually estimated by using the sample standard deviation:
 
 $$
 \text{SEM} = \sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}} \approx \frac{s}{\sqrt{n}}
@@ -210,6 +212,8 @@ We can use the SEM to interpret different populations and see if there is eviden
 *How the standard error of the mean helps us interpret populations, from [this YouTube video](https://www.youtube.com/watch?v=3UPYpOLeRJg).*
 
 [img:sem]: /images/posts/interpreting_SEM.png
+
+We can also use the relationship between the SEM and the sample size $n$ to define how many elements we need in our sample to achieve a desired level of statistical significance.
 
 Link: [simulation applet](http://onlinestatbook.com/stat_sim/sampling_dist/index.html) to explore aspects of sampling distributions.
 
@@ -229,14 +233,21 @@ The test statistic must be such that its sampling distribution, and, consequentl
 ### p-value
 [*p-value*](https://en.wikipedia.org/wiki/P-value) refers to the probability of obtaining test results equals to or more extreme than the actual observations, under the assumptions that the null hypothesis $H_0$ is correct.
 
-The smaller the p-value, the less likely $H_0$ holds, and the higher the statistical significance is said to be.
-
 - $\text{p-value} = \Prob\(T \ge t \mid H_0\)$ for one-sided, right tail test.
 - $\text{p-value} = \Prob\(T \le t \mid H_0\)$ for one-sided, left tail test.
 <!-- $\text{p-value} = \Prob{T \le t \mid H_0}$ for one-sided, right tail test. -->
 
+The smaller the p-value, the less likely $H_0$ holds, and the higher the statistical significance is said to be.
+
 @todo: write details from https://en.wikipedia.org/wiki/One-_and_two-tailed_tests
 
+### Statistical significance
+
+In simple words, [statistical significance](https://en.wikipedia.org/wiki/Statistical_significance) is a determination by an analyst that the results in the data are not explainable by chance alone [3].
+
+More precisely, given a significance level $\alpha$ (chosen before the study) and the p-value $p$ of a result, the result is *statistically significant* when $p < \alpha$.
+
+Values for $\alpha$ are usually set to 5% or lower, depending on the field of the study.
 
 ## Other concepts
 
@@ -258,3 +269,4 @@ The [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem)
 
 1. Wikipedia
 2. [Udacity course on Statistics](https://www.udacity.com/course/statistics--st095)
+3. https://www.investopedia.com/terms/s/statistically_significant.asp
