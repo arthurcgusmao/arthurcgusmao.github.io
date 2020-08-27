@@ -190,6 +190,9 @@ The [sampling distribution](https://en.wikipedia.org/wiki/Sampling_distribution)
 
 The [**standard error**](https://en.wikipedia.org/wiki/Standard_error) of a statistic corresponds to the standard deviation of its sampling distribution. If the parameter or the statistic is the mean, it is called the standard error of the mean (SEM).
 
+<img src="/images/posts/sampling-distribution.png" style="display: block; margin: auto; width: 80%;">
+*Depiction of sampling distribution, taken from [2].*
+
 ### Standard Error of the Mean (SEM) $\sigma_{\bar{x}}$
 
 The SEM quantifies the precision of the mean, i.e., it measures how far the sample mean is likely to be from the true population mean. In other words, the SEM is the standard deviation of the distribution that defines the values of the sample mean we will observe, for each sample of size $n$ we take from the population.
@@ -216,6 +219,24 @@ We can use the SEM to interpret different populations and see if there is eviden
 We can also use the relationship between the SEM and the sample size $n$ to define how many elements we need in our sample to achieve a desired level of statistical significance.
 
 Link: [simulation applet](http://onlinestatbook.com/stat_sim/sampling_dist/index.html) to explore aspects of sampling distributions.
+
+### Margin of error and confidence interval
+
+Given a *confidence level* $\gamma$ chosen by the investigator, a [*confidence interval*](https://en.wikipedia.org/wiki/Confidence_interval) has a probability $\gamma$ of containing the true underlying parameter. In turn, the [*margin of error*](https://en.wikipedia.org/wiki/Margin_of_error) (MOE) corresponds to how distant from the interval mean its margins are (i.e., half the width of the confidence interval).
+
+A line of inferential reasoning one could use to define a confidence interval is:
+
+1. We know the properties of the sampling distribution, e.g., we know that the probability ofh yoaving the sample mean $\bar{x}$ fall between 1.96 standard errors $\sigma_{\bar{x}}$ from the population mean $\mu$ is 95%.
+2. Thus, we know that $\mu$ is at most $1.96\sigma_{\bar{x}}$ away from $\bar{x}$ with 95% confidence.
+3. We calculate $\sigma_{\bar{x}}$ and arrive at our confidence interval.
+    - If we know $\sigma$, then it is straightforward;
+    - If we don't know $\sigma$, we estimate it using the sample standard deviation $s$.
+
+Which gives us the general formula:
+
+$$
+\text{CI} = \left( \bar{x} - z_{\gamma} \cdot \frac{\sigma}{\sqrt{n}} \ , \  \bar{x} + z_{\gamma} \cdot \frac{\sigma}{\sqrt{n}} \right)
+$$
 
 
 ## Statistical hypothesis testing
