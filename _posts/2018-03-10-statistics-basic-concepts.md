@@ -5,6 +5,7 @@ category: "Machine Learning"
 mathjax: true
 header-includes:
     - \usepackage{bm}
+    - \usepackage{amsmath}
     - \newcommand*\mean[1]{\bar{#1}}
 ---
 This is my personal cheatsheet and tutorial for statistics. It is far from being a complete introduction, the main goal is to have a centralized resource where one can quickly remember or access more detailed resources. Many paragraphs are excerpts from the linked Wikipedia articles in the associated section.
@@ -235,7 +236,7 @@ A line of inferential reasoning one could use to define a confidence interval is
 Which gives us the general formula:
 
 $$
-\text{CI} = \left( \bar{x} - z_{\gamma} \cdot \frac{\sigma}{\sqrt{n}} \ , \  \bar{x} + z_{\gamma} \cdot \frac{\sigma}{\sqrt{n}} \right)
+\text{CI} = \left( \bar{x} - z_{\gamma}\frac{\sigma}{\sqrt{n}} \ , \  \bar{x} + z_{\gamma}\frac{\sigma}{\sqrt{n}} \right)
 $$
 
 
@@ -245,9 +246,26 @@ $$
 
 The [null hypothesis](https://en.wikipedia.org/wiki/Null_hypothesis) $H_0$ is a default position that there is no relationship between two measured phenomena or no association among groups [Wikipedia]. It is usually contrasted with an [alternative hypothesis](https://en.wikipedia.org/wiki/Alternative_hypothesis) $H_1$, a new theory.
 
-These statistical hypothesis are usually formulated in terms of a [test statistic](https://en.wikipedia.org/wiki/Test_statistic), a one-value numerical summary of a dataset, defined in a way that distinctions between the two hypotheses can be made.
+These statistical hypothesis are usually formulated in terms of a [test statistic](https://en.wikipedia.org/wiki/Test_statistic), a one-value numerical summary of a dataset, defined in a way that distinctions between the two hypotheses can be made. The test statistic must be such that its sampling distribution, and, consequently, p-values, can be calculated.
 
-The test statistic must be such that its sampling distribution, and, consequently, p-values, can be calculated.
+It is common to define $H_0$ as the test statistic being the same for the different groups/conditions we are examining:
+
+$$
+H_0 : \mu_1 = \mu_2
+$$
+
+And the alternative hypothesis, therefore, is defined as the group/conditions having different values of the test statistic:
+
+$$
+\begin{align}
+  H_1 & : \mu_1 \neq \mu_2 \quad \text{(two-tailed test)} \\[0.5ex]
+  H_1 & : \mu_1 \gt \mu_2 \quad \text{(one-tailed test)} \\
+  H_1 & : \mu_1 \lt \mu_2 \quad \text{(one-tailed test)} \\
+\end{align}
+$$
+
+[Two-tailed](https://en.wikipedia.org/wiki/One-_and_two-tailed_tests) (non-directional) tests are more general (more conservative);  [one-tailed](https://en.wikipedia.org/wiki/One-_and_two-tailed_tests) (directional) tests are used when we expect a direction of the treatment effect (e.g., we want to compare a new with an established web-page interface and we care only about assessing if the new will be better than the existing one).
+
 
 <!-- Z-test is any statistical  -->
 
@@ -268,7 +286,7 @@ In simple words, [statistical significance](https://en.wikipedia.org/wiki/Statis
 
 More precisely, given a significance level $\alpha$ (chosen before the study) and the p-value $p$ of a result, the result is *statistically significant* when $p < \alpha$.
 
-Values for $\alpha$ are usually set to 5% or lower, depending on the field of the study.
+Values for $\alpha$ are usually set to 5% or lower, depending on the field of the study and what probability is considered "unlikely" to occur.
 
 ## Other concepts
 
