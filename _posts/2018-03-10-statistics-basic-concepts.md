@@ -248,21 +248,17 @@ The [null hypothesis](https://en.wikipedia.org/wiki/Null_hypothesis) $H_0$ is a 
 
 Statistical hypotheses are usually formulated in terms of a [test statistic](https://en.wikipedia.org/wiki/Test_statistic), a one-value numerical summary of a dataset, defined in a way that distinctions between the two hypotheses can be made. The test statistic must be such that its sampling distribution and, consequently, p-values can be calculated.
 
-It is common to define $H_0$ as the test statistic being the same for the different groups/conditions we are examining:
-
-$$
-H_0 : \mu_1 = \mu_2
-$$
-
-And the alternative hypothesis, therefore, is defined as the group/conditions having different values of the test statistic:
+It is common to define $H_0$ as the test statistic being the same (precisely, *not significantly different*) for the different groups/conditions we are examining, and the alternative hypothesis as the group/conditions having *significantly* different values of the test statistic:
 
 $$
 \begin{align}
-  H_1 & : \mu_1 \neq \mu_2 \quad \text{(two-tailed test)} \\[0.5ex]
-  H_1 & : \mu_1 \gt \mu_2 \quad \text{(one-tailed test)} \\
-  H_1 & : \mu_1 \lt \mu_2 \quad \text{(one-tailed test)} \\
+  H_0 : \mu_1 = \mu_2 \quad , \quad H_1 & : \mu_1 \neq \mu_2 \quad \text{(two-tailed test)} \\[0.8ex]
+  H_0 : \mu_1 \le \mu_2 \quad , \quad H_1 & : \mu_1 \gt \mu_2 \quad \text{(one-tailed test)} \\
+  H_0 : \mu_1 \ge \mu_2 \quad , \quad H_1 & : \mu_1 \lt \mu_2 \quad \text{(one-tailed test)} \\
 \end{align}
 $$
+
+Notice that the boundaries between $H_0$ and $H_1$ are defined in terms of *statistical significance*, not in the strict mathematical sense. For instance, if we found out that the (true) test parameter of the experimental group would be slightly but not significantly different than that of the control group, we would still consider $H_0$ as the correct hypothesis.
 
 [Two-tailed](https://en.wikipedia.org/wiki/One-_and_two-tailed_tests) (non-directional) tests are more general (more conservative);  [one-tailed](https://en.wikipedia.org/wiki/One-_and_two-tailed_tests) (directional) tests are used when we expect a direction of the treatment effect (e.g., we want to compare a new webpage interface with an established one and we care only about assessing if the change will improve what is currently deployed).
 
@@ -278,7 +274,6 @@ $$
 
 The smaller the p-value, the less likely $H_0$ holds, and the higher the statistical significance is said to be.
 
-@todo: write details from https://en.wikipedia.org/wiki/One-_and_two-tailed_tests
 
 ### Statistical significance
 
@@ -302,6 +297,9 @@ The [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem)
 ![][img:binom-dist]
 
 [img:binom-dist]: /images/posts/binomial-distribution.png
+
+### Type I and Type II errors
+*Type I error* is rejecting a true null hypothesis; *Type II error* is not rejecting a false null hypothesis. ([Type I and type II errors - Wikipedia](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors))
 
 
 ## References
