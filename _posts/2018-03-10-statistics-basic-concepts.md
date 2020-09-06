@@ -69,8 +69,8 @@ The median is more robust to outliers than the mean. It is therefore the best me
 
 - Population mean: $\mu$
 - Sample mean: $\mean{x}$ (can be used to estimate $\mu$)
-- The mean is **affected by outliers**.
-
+- The mean is **sensitive to outliers**
+- The [law of large numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers) states that as a sample size grows, its mean gets closer to the average of the whole population.
 
 ![][img:skewed]
 
@@ -165,7 +165,7 @@ $$
 z_i = \frac{x_i - \mu}{\sigma} \ \ \ \implies \ \ \ x_i = \mu + z_i \cdot \sigma
 $$
 
-By its definition, the z-score is a *dimensionless* quantity.
+By its definition, the z-score is a *dimensionless* quantity. It can mapped directly to a percentile when you know the shape of the distribution (or, in case you do not, to weaker bounds using [Chebyshev's inequality](https://en.wikipedia.org/wiki/Chebyshev's_inequality)).
 
 
 ### The Bias vs Variance Tradeoff
@@ -192,7 +192,7 @@ The [sampling distribution](https://en.wikipedia.org/wiki/Sampling_distribution)
 The [**standard error**](https://en.wikipedia.org/wiki/Standard_error) of a statistic corresponds to the standard deviation of its sampling distribution. If the parameter or the statistic is the mean, it is called the standard error of the mean (SEM).
 
 <img src="/images/posts/sampling-distribution.png" style="display: block; margin: auto; width: 80%;">
-*Depiction of sampling distribution, taken from [2].*
+*Depiction of distribution sampling, taken from [2].*
 
 ### Standard Error of the Mean (SEM) $\sigma_{\bar{x}}$
 
@@ -244,9 +244,9 @@ $$
 
 ### Null and alternative hypothesis
 
-The [null hypothesis](https://en.wikipedia.org/wiki/Null_hypothesis) $H_0$ is a default position that there is no relationship between two measured phenomena or no association among groups [Wikipedia]. It is usually contrasted with an [alternative hypothesis](https://en.wikipedia.org/wiki/Alternative_hypothesis) $H_1$, a new theory.
+The [null hypothesis](https://en.wikipedia.org/wiki/Null_hypothesis) $H_0$ is a default position that there is no relationship between two measured phenomena or no association among groups. It is usually contrasted with an [alternative hypothesis](https://en.wikipedia.org/wiki/Alternative_hypothesis) $H_1$, a new theory.
 
-These statistical hypothesis are usually formulated in terms of a [test statistic](https://en.wikipedia.org/wiki/Test_statistic), a one-value numerical summary of a dataset, defined in a way that distinctions between the two hypotheses can be made. The test statistic must be such that its sampling distribution, and, consequently, p-values, can be calculated.
+Statistical hypotheses are usually formulated in terms of a [test statistic](https://en.wikipedia.org/wiki/Test_statistic), a one-value numerical summary of a dataset, defined in a way that distinctions between the two hypotheses can be made. The test statistic must be such that its sampling distribution and, consequently, p-values can be calculated.
 
 It is common to define $H_0$ as the test statistic being the same for the different groups/conditions we are examining:
 
@@ -264,7 +264,7 @@ $$
 \end{align}
 $$
 
-[Two-tailed](https://en.wikipedia.org/wiki/One-_and_two-tailed_tests) (non-directional) tests are more general (more conservative);  [one-tailed](https://en.wikipedia.org/wiki/One-_and_two-tailed_tests) (directional) tests are used when we expect a direction of the treatment effect (e.g., we want to compare a new with an established web-page interface and we care only about assessing if the new will be better than the existing one).
+[Two-tailed](https://en.wikipedia.org/wiki/One-_and_two-tailed_tests) (non-directional) tests are more general (more conservative);  [one-tailed](https://en.wikipedia.org/wiki/One-_and_two-tailed_tests) (directional) tests are used when we expect a direction of the treatment effect (e.g., we want to compare a new webpage interface with an established one and we care only about assessing if the change will improve what is currently deployed).
 
 
 <!-- Z-test is any statistical  -->
