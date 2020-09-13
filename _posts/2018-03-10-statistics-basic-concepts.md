@@ -9,6 +9,7 @@ header-includes:
     - \newcommand*\mean[1]{\bar{#1}}
 ---
 This is my personal cheatsheet and tutorial for statistics. It is far from being a complete introduction, the main goal is to have a centralized resource where one can quickly remember or access more detailed resources. Many paragraphs are excerpts from the linked Wikipedia articles in the associated section.
+
 $$
     \def\mean#1{\bar #1}
     \DeclareMathOperator{\EV}{\mathbb{E}}
@@ -142,6 +143,12 @@ $$
 
 The **standard deviation** is simply the root square of the variance. One interesting characteristic of the standard deviation is the [68–95–99.7 rule](https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule).
 
+If two random variables X and Y are independent of each other, the variance of the sum is the sum of the variances:
+
+$$
+\sigma_{X+Y}^2 = \sigma_X^2 + \sigma_Y^2
+$$
+
 #### Bessel's Correction (unbiased estimator of the population variance)
 
 You use $(n - 1)$ instead of $(n)$ to calculate the standard deviation when estimating the standard deviation for the population from a sample.
@@ -227,7 +234,7 @@ Given a *confidence level* $\gamma$ chosen by the investigator, a [*confidence i
 
 A line of inferential reasoning one could use to define a confidence interval is:
 
-1. We know the properties of the sampling distribution, e.g., we know that the probability ofh yoaving the sample mean $\bar{x}$ fall between 1.96 standard errors $\sigma_{\bar{x}}$ from the population mean $\mu$ is 95%.
+1. We know the properties of the sampling distribution, e.g., we know that the probability of having the sample mean $\bar{x}$ fall between 1.96 standard errors $\sigma_{\bar{x}}$ from the population mean $\mu$ is 95%.
 2. Thus, we know that $\mu$ is at most $1.96\sigma_{\bar{x}}$ away from $\bar{x}$ with 95% confidence.
 3. We calculate $\sigma_{\bar{x}}$ and arrive at our confidence interval.
     - If we know $\sigma$, then it is straightforward;
@@ -263,8 +270,6 @@ Notice that the boundaries between $H_0$ and $H_1$ are defined in terms of *stat
 [Two-tailed](https://en.wikipedia.org/wiki/One-_and_two-tailed_tests) (non-directional) tests are more general (more conservative);  [one-tailed](https://en.wikipedia.org/wiki/One-_and_two-tailed_tests) (directional) tests are used when we expect a direction of the treatment effect (e.g., we want to compare a new webpage interface with an established one and we care only about assessing if the change will improve what is currently deployed).
 
 
-<!-- Z-test is any statistical  -->
-
 ### p-value
 [*p-value*](https://en.wikipedia.org/wiki/P-value) refers to the probability of obtaining test results equals to or more extreme than the actual observations, under the assumptions that the null hypothesis $H_0$ is correct.
 
@@ -283,6 +288,31 @@ More precisely, given a significance level $\alpha$ (chosen before the study) an
 
 Values for $\alpha$ are usually set to 5% or lower, depending on the field of the study and what probability is considered "unlikely" to occur.
 
+
+### Z-test and Student's t-test
+
+Both test the mean of a (assuming normal) distribution. A [Z-test](https://en.wikipedia.org/wiki/Z-test) is used when the sampling distribution can be approximated by a (standard) normal distribution, which is used to calculate the critical values for the test. This is the case when the population standard deviation $\sigma$ is known. Conversely, a [Student's t-test](https://en.wikipedia.org/wiki/Student%27s_t-test) is used when the population standard deviation is unknown, since in such a case the sampling distribution has the shape of a [Student's t-distribution](https://en.wikipedia.org/wiki/Student%27s_t-distribution) [2], which incorporates the extra uncertainty we have by approximating the population standard deviation $\sigma$ using the sample standard deviation $s$.
+
+$$
+\frac{\bar{x} - \mu}{\sigma / \sqrt{n}} \sim Z \quad \quad \quad \quad \frac{\bar{x} - \mu}{s / \sqrt{n}} \sim t_{n-1}
+$$
+
+The t-distribution is more spread out and thicker in the tails than a normal distribution. As the sample size increases, the t-distribution approaches a normal distribution. When the sample size is large enough ($N > 30$ as a rule of thumb), the t-distribution can be approximated by a normal distribution, by the Central Limit Theorem.
+
+![][img:t-dist]
+
+[img:t-dist]: /images/posts/statistics/students-t-dist.png
+
+It is common to write the number of degrees of freedom $\nu = n-1$ of the t-distribution as a subscript.
+
+
+
+Links:
+- [What is the t-distribution? An extensive guide! - YouTube](https://www.youtube.com/watch?v=UetYS3PaHIo&t=276s)
+- [Derivation of the t-distribution](https://www.youtube.com/watch?v=jFOyzEJctUU)
+- [Central Limit Theorem and t-distribution](https://genomicsclass.github.io/book/pages/clt_and_t-distribution.html)
+
+
 ## Other concepts
 
 ### i.i.d.
@@ -300,6 +330,30 @@ The [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem)
 
 ### Type I and Type II errors
 *Type I error* is rejecting a true null hypothesis; *Type II error* is not rejecting a false null hypothesis. ([Type I and type II errors - Wikipedia](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors))
+
+### Degrees of freedom
+[Degrees of freedom](https://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics)) refer to the number of values in the final calculation of a statistic that are free to vary, i.e., the number of pieces of information that can be freely varied without violating any given restrictions.
+
+Usually the sample variance has $N-1$ degrees of freedom because its calculation involves using $N$ random elements minus the only 1 parameter estimated as intermediate step, which is the sample mean. After you know the mean, only $n-1$ values can be varied.
+
+### Cohen's d
+[Cohen's d](https://en.wikipedia.org/wiki/Effect_size#Cohen's_d) is defined as the difference between two means divided by a standard deviation for the data, i.e.,
+
+$$
+d = \frac{\bar{x}_1 - \bar{x}_2}{s} = \frac{\mu_1 - \mu_2}{s}
+$$
+
+### Paired sample tests (dependent sample tests)
+
+[Paired samples](https://en.wikipedia.org/wiki/Student%27s_t-test#Paired_samples) (t-tests) are used when comparing the mean of two conditions when a "*within-subjects*" or ""*repeated-measures*"" experiment was performed, i.e., when, for each unit or subject, you have two measurements, one under each condition (e.g., before and after treatment). In this case, the test is performed on the resulting differences of the measurements for each unit or subject:
+
+$$
+H_0 : \mu_{\text{after}} = \mu_{\text{before}} \implies \mu_{\text{after}} - \mu_{\text{before}} = 0 \\
+$$
+
+$$
+x_{\text{diff}_i} = x_{\text{after}_i} - x_{\text{before}_i}
+$$
 
 
 ## References
