@@ -336,25 +336,37 @@ The [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem)
 
 Usually the sample variance has $N-1$ degrees of freedom because its calculation involves using $N$ random elements minus the only 1 parameter estimated as intermediate step, which is the sample mean. After you know the mean, only $n-1$ values can be varied.
 
-### Cohen's d
+### Paired sample tests (dependent sample tests)
+
+[Paired samples](https://en.wikipedia.org/wiki/Student%27s_t-test#Paired_samples) tests are used when comparing the mean of two conditions when a "*within-subjects*" or ""*repeated-measures*"" experiment was performed, i.e., when, for each unit or subject, you have two measurements, one under each condition (e.g., before and after treatment). In this case, the idea is to make the test using the resulting set $x_D$ of the differences between the measurements for each unit or subject:
+
+$$
+\begin{align}
+H_0 : \mu_{\text{after}} = \mu_{\text{before}} \quad \Rightarrow \quad
+& H_0 : \mu_{\text{after}} - \mu_{\text{before}} = \mu_D = 0 \\
+& H_1 : \mu_{\text{after}} - \mu_{\text{before}} = \mu_D \neq 0
+\end{align}
+$$
+
+$$
+x_{D,i} = x_{\text{after},i} - x_{\text{before},i} \quad \Rightarrow \quad
+\bar{x}_{D} = \bar{x}_{\text{after}} - \bar{x}_{\text{before}}
+$$
+
+
+### Effect Size
+[Effect size](https://en.wikipedia.org/wiki/Effect_size) is a quantitative measure of the magnitude of a phenomenon. It can take the form of many particular measures. Usually these are devided into [families of types](https://en.wikipedia.org/wiki/Effect_size#Types).
+
+#### Cohen's d
 [Cohen's d](https://en.wikipedia.org/wiki/Effect_size#Cohen's_d) is defined as the difference between two means divided by a standard deviation for the data, i.e.,
 
 $$
 d = \frac{\bar{x}_1 - \bar{x}_2}{s} = \frac{\mu_1 - \mu_2}{s}
 $$
 
-### Paired sample tests (dependent sample tests)
 
-[Paired samples](https://en.wikipedia.org/wiki/Student%27s_t-test#Paired_samples) (t-tests) are used when comparing the mean of two conditions when a "*within-subjects*" or ""*repeated-measures*"" experiment was performed, i.e., when, for each unit or subject, you have two measurements, one under each condition (e.g., before and after treatment). In this case, the test is performed on the resulting differences of the measurements for each unit or subject:
-
-$$
-H_0 : \mu_{\text{after}} = \mu_{\text{before}} \implies \mu_{\text{after}} - \mu_{\text{before}} = 0 \\
-$$
-
-$$
-x_{\text{diff}_i} = x_{\text{after}_i} - x_{\text{before}_i}
-$$
-
+### Descriptive vs Inferential Statistics
+[Descriptive statistics](https://en.wikipedia.org/wiki/Descriptive_statistics) is the process of using summary statistics to quantitatively describe or summarize features from a collection of information. Conversely, [inferential statistics](https://en.wikipedia.org/wiki/Statistical_inference) uses the data to learn about the population that the sample is thought to represent, and makes use of probability theory to draw its conclusions. Examples of the former are mean and standard deviation; examples of the latter are hypothesis tests and confidence intervals.
 
 ## References
 
