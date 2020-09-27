@@ -1,9 +1,17 @@
-import os, sys, subprocess
+import os
+import sys
+import subprocess
+
 import frontmatter
 
-def get_html_version(f):
-    bashCommand = "pandoc --filter=/home/arthurcgusmao/.miniconda3/bin/pandoc-fignos --filter=/home/arthurcgusmao/.miniconda3/bin/pandoc-eqnos --filter=pandoc-citeproc {} -t html ".format(f)
-    process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE, universal_newlines=True)
+
+def get_html_version(filename):
+    bash_command = "pandoc"
+    bash_command += f" --filter=pandoc-fignos"
+    bash_command += f" --filter=pandoc-eqnos"
+    bash_command += f" --filter=pandoc-citeproc {filename} -t html"
+    process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE,
+                               universal_newlines=True)
     output, error = process.communicate()
     return output
 
@@ -30,5 +38,6 @@ def write_final_post(fpath):
         f.write(output)
 
 
-_, file = sys.argv
-write_final_post(file)
+if ___name___ == "___main___":
+    _, filename = sys.argv
+    write_final_post(filename)
