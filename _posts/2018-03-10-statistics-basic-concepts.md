@@ -98,7 +98,7 @@ Problem with Range and IQR: neither takes all data into account.
 
 *An observation point that is distant from other observations.*
 
-Values below (Q1 - 1.5\*IQR) or above (Q3 + 1.5\*IQR) are usually considered outliers.
+According to the [Tukey rule](https://en.wikipedia.org/wiki/Outlier#Tukey's_fences), values below (Q1 - 1.5\*IQR) or above (Q3 + 1.5\*IQR) are usually considered outliers.
 
 ![][img:outlier-boxplot]
 Outliers are represented as dots in a boxplot.
