@@ -1,0 +1,61 @@
+---
+layout: post
+title: Boosting and AdaBoost
+category: Machine Learning
+mathjax: True
+---
+
+<h2 id="introduction">Introduction</h2>
+<p><em>Boosting</em> is an approach to machine learning based on the idea of creating a highly accurate prediction rule by combining many relatively weak and inaccurate rules. Since it uses the output of other learning algorithms, it may be referred to as a meta-algorithm. Methods that use multiple learning algorithms to obtain better predictive performance are called <em>ensemble methods</em>, and boosting is a particular case. In this text we briefly discuss boosting in general, with a more intuitive explanation, and focus on the very traditional <em>AdaBoost</em> algorithm, with some practical considerations at the end.</p>
+<h2 id="some-history-and-concepts">Some history and concepts</h2>
+<p>The idea of boosting was motivated when Micheal Kearns and Leslie Valiant introduced the concept of <em>weak learnability</em> and posed what is known as the <em>hypothesis boosting problem</em> in 1988.</p>
+<p>A class of concepts is (strongly) <em>learnable</em> if there exists a polynomial-time algorithm that achieves low error with high confidence for all concepts in the class. Weak learnability drops the requirement that the learner be able to achieve arbitrarily high accuracy; a weak learning algorithm only need to be able to output a hypothesis that performs (slightly) better than random guessing <span class="citation" data-cites="Schapire1989">(Schapire <a href="#ref-Schapire1989" role="doc-biblioref">1989</a>)</span>.</p>
+<p>The <em>hypothesis boosting problem</em> asked the following question: “Can a set of weak learning algorithms be combined into an arbitrarily strong learner?” Robert Schapire answered it with a yes on his 1990 paper called <em>The Strength of Weak Learnability</em>. That paper presented the first provable polynomial-time boosting algorithm. A year later, Yoav Freund developed a more efficient algorithm, but it still had some practical issues. Then in 1995 Freund and Schapire developed the AdaBoost algorithm, which solved many of the practical difficulties that the earlier boosting algorithms had <span class="citation" data-cites="Ehlen2007">(Ehlen <a href="#ref-Ehlen2007" role="doc-biblioref">2007</a>)</span>, winning the Gödel Prize.</p>
+<h2 id="what-is-boosting">What is boosting</h2>
+<p>The concept of boosting lies on the idea that we can combine many relatively weak and inaccurate rules to create a highly accurate prediction. The way AdaBoost does that is by combining the output of the other learning algorithms (the weak learners) into a weighted sum that represents the final output of the algorithm. AdaBoost is adaptive in the sense that subsequent weak learners are tweaked in favor of those instances misclassified by previous classifiers <span class="citation" data-cites="wiki:AdaBoost">(Wikipedia <a href="#ref-wiki:AdaBoost" role="doc-biblioref">2017</a><a href="#ref-wiki:AdaBoost" role="doc-biblioref">a</a>)</span>.</p>
+<p>Schapire proved that it is possible to build a learner which error can be <em>arbitrarily</em> small (i.e., a strong learner) by combining the prediction of many different weak learners.</p>
+<h2 id="some-intuition-on-why-boosting-works">Some intuition on why boosting works</h2>
+<p>We can metaphorically reformulate the hypothesis boosting problem in the following manner: “Can we make a crowd arbitrarily smart in a specific topic by adding to it as many individuals (specialists) as we want?” Apparently the answer is yes, but this won’t always work. Note that we have to make sure that the new specialist should be correct more than 50%, otherwise we are decreasing our chances of getting the right answer. Another essential thing to do is to make sure that the new specialist included is better covering an area of the domain which we weren’t getting quite right yet, otherwise we could stay a long time adding new specialists with very little or no improvement.</p>
+<p>The first issue is surely covered by assuring that the learners are at least weak learners (they should each have error below 1/2). Given this assumption and sufficient data, a boosting algorithm can provably produce a final hypothesis with arbitrarily small generalization error <span class="citation" data-cites="Schapire2013">(Schapire <a href="#ref-Schapire2013" role="doc-biblioref">2013</a>)</span>.</p>
+<p>The second issue is a more practical one, and is handled quite well by AdaBoost by its adaptative property. AdaBoost tweaks each new generated hypothesis (in each iteration) in favor of those instances misclassified by previous classifiers. As explained by him, “The proof of this result was based on the filtering of the distribution in a manner causing the weak learning algorithm to eventually learn nearly the entire distribution” <span class="citation" data-cites="Schapire1989">(Schapire <a href="#ref-Schapire1989" role="doc-biblioref">1989</a>)</span>.</p>
+<h2 id="the-adaboost-algorithm">The AdaBoost Algorithm</h2>
+<figure>
+<img src="/images/posts/adaboost_alg.png" alt="" /><figcaption>AdaBoost Algorithm</figcaption>
+</figure>
+<p>The pseudocode for AdaBoost is shown the figure above. We are given <span class="math inline"><em>m</em></span> labeled training examples <span class="math inline">(<em>x</em><sub>1</sub>, <em>y</em><sub><em>m</em></sub>), ..., (<em>x</em><sub><em>m</em></sub>, <em>y</em><sub><em>m</em></sub>)</span>. On each round <span class="math inline"><em>t</em> = 1, ..., <em>T</em></span>, a distribution <span class="math inline"><em>D</em><sub><em>t</em></sub></span> is computed as in the figure over the <span class="math inline"><em>m</em></span> training examples, and a given weak learner is applied to find a <em>weak hypothesis</em> <span class="math inline"><em>h</em><sub><em>t</em></sub></span>, where the aim of the weak learner is to find a weak hypothesis with low weighted error <span class="math inline"><em>ϵ</em><sub><em>t</em></sub></span> relative to <span class="math inline"><em>D</em><sub><em>t</em></sub></span>. The final or combined hypothesis <span class="math inline"><em>H</em></span> computes the sign of a weighted combination of weak hypotheses</p>
+<p><br /><span class="math display">$$
+    F(x) = \sum^{T}_{t=1} \alpha_t h_t(x).
+$$</span><br /></p>
+<p>As already mentioned, this is equivalent to saying that <span class="math inline"><em>H</em></span> is computed as a weighted majority vote of the weak hypotheses <span class="math inline"><em>h</em><sub><em>t</em></sub></span> where each is assigned weight <span class="math inline"><em>α</em><sub><em>t</em></sub></span> <span class="citation" data-cites="Schapire2013">(Schapire <a href="#ref-Schapire2013" role="doc-biblioref">2013</a>)</span>.</p>
+<p>Application of the VC Theory (Vapnik and Chervonenkis) to AdaBoost predicts that it will <em>always</em> overfit. In practice, however, one can see that the algorithm has a quite strong resistance to overfitting. This has been tried to be explained in many forms. Schapire came with the <em>margins explanation</em>: in summary, AdaBoost will succeed without overfitting if the weak-hypothesis accuracies are substantially better than random (since this will lead to large margins), and if provided with enough data relative to the complexity of the weak hypotheses <span class="citation" data-cites="Schapire2013">(Schapire <a href="#ref-Schapire2013" role="doc-biblioref">2013</a>)</span>. We won’t get into more details here, but his hypothesis can be better understood by reading his 2013 essay “Explaining AdaBoost”.</p>
+<p>Besides resistance to overfitting, AdaBoost has many advantages: it is fast, simple and easy to program; it has only one parameter to tune (the number of rounds); it requires no prior knowledge about the weak learner <span class="citation" data-cites="Ehlen2007">(Ehlen <a href="#ref-Ehlen2007" role="doc-biblioref">2007</a>)</span>.</p>
+<p>AdaBoost also has an ability to identify outliers. Because it focuses its weights on the hardest examples, the examples with the highest weight often turn out to be outliers. However, when the number of outliers is very large, the emphasis placed on the hard examples can become detrimental to the performance of the algorithm. This was demonstrated in practice, and a variant of the algorithm called “Gentle AdaBoost”, which puts less emphasis on outliers, was proposed <span class="citation" data-cites="Ehlen2007">(Ehlen <a href="#ref-Ehlen2007" role="doc-biblioref">2007</a>)</span>.</p>
+<p>A paper published by Phillip Long and Rocco A. Servedio in 2008 suggested that many boosting algorithms, including AdaBoost, are probably flawed. They concluded that “convex potential boosters cannot withstand random classification noise” <span class="citation" data-cites="Long:2010:RCN:1713649.1713653">(Long and Servedio <a href="#ref-Long:2010:RCN:1713649.1713653" role="doc-biblioref">2010</a>)</span>, therefore making the applicability of such algorithms for real world with noisy datasets questionable. The paper shows that if any fraction of the training data is mis-labeled, the boosting algorithm tries extremely hard to correctly classify these training examples, and fails to produce a model with accuracy much better than random guessing <span class="citation" data-cites="wiki:boosting">(Wikipedia <a href="#ref-wiki:boosting" role="doc-biblioref">2017</a><a href="#ref-wiki:boosting" role="doc-biblioref">b</a> )</span>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>We have seen some key concepts in understanding boosting in general and AdaBoost in particular. Some historical context was presented. An intuitive vision on why boosting works was favored, and then the AdaBoost Algorithm was analysed. Advantages and disadvantages were discussed, together with some proposed explanations on how and why AdaBoost works and practical considerations.</p>
+<hr />
+<p>oq da pra melhorar:</p>
+<ul>
+<li>falar sobre o que eu respondi naquele topico do stackoverflow</li>
+</ul>
+<h2 id="references" class="unnumbered">References</h2>
+<div id="refs" class="references" role="doc-bibliography">
+<div id="ref-Ehlen2007">
+<p>Ehlen, Stephan. 2007. “a Short Introduction To boosting” 1 (4): 1–5. <a href="https://doi.org/10.4467/20838476SI.14.001.3018">https://doi.org/10.4467/20838476SI.14.001.3018</a>.</p>
+</div>
+<div id="ref-Long:2010:RCN:1713649.1713653">
+<p>Long, Philip M., and Rocco A. Servedio. 2010. “Random Classification Noise Defeats All Convex Potential Boosters.” <em>Mach. Learn.</em> 78 (3): 287–304. <a href="https://doi.org/10.1007/s10994-009-5165-z">https://doi.org/10.1007/s10994-009-5165-z</a>.</p>
+</div>
+<div id="ref-Schapire1989">
+<p>Schapire, Robert E. 1989. “The Strength of Weak Learnability” 227: 197–227. <a href="http://www.dtic.mil/dtic/tr/fulltext/u2/a216389.pdf">http://www.dtic.mil/dtic/tr/fulltext/u2/a216389.pdf</a>.</p>
+</div>
+<div id="ref-Schapire2013">
+<p>———. 2013. “Explaining adaboost.” <em>Empirical Inference: Festschrift in Honor of Vladimir N. Vapnik</em>, 37–52. <a href="https://doi.org/10.1007/978-3-642-41136-6_5">https://doi.org/10.1007/978-3-642-41136-6_5</a>.</p>
+</div>
+<div id="ref-wiki:AdaBoost">
+<p>Wikipedia. 2017a. “AdaBoost — Wikipedia, the Free Encyclopedia.” <a href="https://en.wikipedia.org/w/index.php?title=AdaBoost&amp;oldid=768996379">https://en.wikipedia.org/w/index.php?title=AdaBoost&amp;oldid=768996379</a>.</p>
+</div>
+<div id="ref-wiki:boosting">
+<p>———. 2017b. “Boosting (Machine Learning) — Wikipedia, the Free Encyclopedia.” <a href="https://en.wikipedia.org/w/index.php?title=Boosting_(machine_learning)&amp;oldid=778023582">https://en.wikipedia.org/w/index.php?title=Boosting_(machine_learning)&amp;oldid=778023582</a>.</p>
+</div>
+</div>

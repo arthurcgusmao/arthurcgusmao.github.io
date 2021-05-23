@@ -315,6 +315,13 @@ Links:
 
 ## Other concepts
 
+### Independence
+Random variables are *independent* from each other if the realization of one does not affect the probability distribution of the other. Conversely, random variables are *dependent* if the value of one affects the probability distribution of the other.
+
+The same is true for samples: if the values in one sample affect the values in the other sample, then they are [dependent](https://support.minitab.com/en-us/minitab-express/1/help-and-how-to/basic-statistics/inference/supporting-topics/tests-of-means/how-are-dependent-and-independent-samples-different/#:~:text=Sample%20the%20blood%20pressures%20of,pressure%20in%20the%20second%20sample.). The classic example is the blood pressure drug test where samples of the same patients were taken before and after the drug, for the same group of patients. Since the people with the highest blood pressure in the first sample will likely have the highest blood pressure in the second sample, the samples are dependent.
+
+Another example of independence vs dependence is sampling with or without replacement.
+
 ### i.i.d.
 [Independent and identically distributed](https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables) random variables refers to a collection of random variables that are mutually independent from each other and sampled from the same probability distribution.
 
