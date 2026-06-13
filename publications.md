@@ -16,7 +16,7 @@ International Journal of Approximate Reasoning, vol. 106, pp. 32-50, 2019. [Prep
 
 Arthur Colombini Gusmão.<br>
 **Interpreting Embedding Models of Knowledge Bases.**<br>
-(Master's thesis) Universidade de São Paulo, 2018. [Link.](http://www.teses.usp.br/teses/disponiveis/3/3141/tde-04022019-094854/publico/ArthurColombiniGusmaoCorr18.pdf)
+(Master's thesis) Universidade de São Paulo, 2018. [Link.](http://arthurcgusmao.com/archive/master-thesis2018.pdf)
 
 Arthur Colombini Gusmão, Alvaro Henrique Chaim Correia, Glauber De Bona, and Fabio Gagliardi Cozman.<br>
 **Interpreting Embedding Models of Knowledge Bases: A Pedagogical Approach.**<br>
